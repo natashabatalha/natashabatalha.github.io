@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+<url>
+  <loc>https://natashabatalha.github.io/</loc>
+  <lastmod>2018-02-26T02:44:51+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://natashabatalha.github.io/index.html</loc>
+  <lastmod>2018-02-26T02:44:51+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://natashabatalha.github.io/natashabatalhaCV.pdf</loc>
+  <lastmod>2018-02-26T02:44:51+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://natashabatalha.github.io/masses.html</loc>
+      <image:image>
+       <image:loc>https://natashabatalha.github.io/assets/img/portfolio/mass.pdf</image:loc>
+       <image:caption>Masses are important to characterize the atmospheres of exoplanets via transit transmission spectroscopy</image:caption>
+    </image:image>
+  <lastmod>2018-02-26T02:44:51+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://natashabatalha.github.io/ic.html</loc>
+        <image:image>
+       <image:loc>https://natashabatalha.github.io/assets/img/portfolio/ic1.jpg</image:loc>
+       <image:caption>Information content theory used to identify the best modes to characterize the atmospheres of exoplanets with the James Webb Space Telescope (JWST)</image:caption>
+    </image:image>
+  <lastmod>2018-02-26T02:44:51+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://natashabatalha.github.io/pandexopaper.html</loc>
+  <image:image>
+       <image:loc>https://natashabatalha.github.io/assets/img/portfolio/pandexo.pdf</image:loc>
+       <image:caption>PandExo helsp the community plan their observations of exoplanets with James Webb Space Telescope (JWST)</image:caption>
+    </image:image>
+  <lastmod>2018-02-26T02:44:51+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://natashabatalha.github.io/marscycle.html</loc>
+    <image:image>
+       <image:loc>https://natashabatalha.github.io/assets/img/portfolio/cycling.jpg</image:loc>
+       <image:caption>Early Mars could have experienced climate cycles 3.8 billion years ago</image:caption>
+    </image:image>
+  <lastmod>2018-02-26T02:44:51+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://natashabatalha.github.io/marsh2.html</loc>
+      <image:image>
+       <image:loc>https://natashabatalha.github.io/assets/img/portfolio/cycling.jpg</image:loc>
+       <image:caption>Early Mars could have been warmed by a thick greenhouse atmosphere made up of carbon diozide and hygrogen 3.8 billion years ago</image:caption>
+    </image:image>
+  <lastmod>2018-02-26T02:44:51+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://natashabatalha.github.io/whitepaper.html</loc>
+  <lastmod>2018-02-26T02:44:51+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://natashabatalha.github.io/gallerynasa.html</loc>
+      <image:image>
+       <image:loc>https://natashabatalha.github.io/assets/img/gallery/jwst_modes.png</image:loc>
+       <image:caption>Transit timing spectroscopy modes on board the James Webb Space Telescope (JWST), used for exoplanets</image:caption>
+    </image:image>
+      <image:image>
+       <image:loc>https://natashabatalha.github.io/assets/img/gallery/pec_res.jpg</image:loc>
+       <image:caption>Transit timing spectroscopy modes on board the James Webb Space Telescope (JWST), used for exoplanets</image:caption>
+    </image:image>
+    <image:image>
+       <image:loc>https://natashabatalha.github.io/assets/img/gallery/jwst_exo.png</image:loc>
+       <image:caption>Remote sensing with the James Webb Space Telescope (JWST) will yield transmission spectra and give insights into planet's climate and chemistry</image:caption>
+    </image:image>
+    <image:image>
+       <image:loc>https://natashabatalha.github.io/assets/img/gallery/pec_res.jpg</image:loc>
+       <image:caption>Schematic showing James Webb Space Telescope (JWST) readout patterns with groups and integrations</image:caption>
+    </image:image>
+  <lastmod>2018-02-26T02:44:51+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://natashabatalha.github.io/galleryexo.html</loc>
+    <image:image>
+       <image:loc>https://natashabatalha.github.io/assets/img/gallery/exoplanet_characterization.pdf</image:loc>
+       <image:caption>Roadmap to determining atmospheric composition and climate of exoplanets</image:caption>
+    </image:image>
+    <image:image>
+       <image:loc>https://natashabatalha.github.io/assets/img/gallery/transit_spectra.png</image:loc>
+       <image:caption>Transit transmission spectroscopy for exoplanet atmospheres</image:caption>
+    </image:image>
+    <image:image>
+       <image:loc>https://natashabatalha.github.io/assets/img/gallery/transit_spec_clouds.png</image:loc>
+       <image:caption>Transit transmission spectroscopy and clouds for exoplanet atmospheres</image:caption>
+    </image:image>
+    <image:image>
+       <image:loc>https://natashabatalha.github.io/assets/img/gallery/exo_sims.pdf</image:loc>
+       <image:caption>Exoplanet transmission spectroscopy with the James Webb Space Telescope (Hot Jupiter, warm Neptune, temperate Earth)</image:caption>
+    </image:image>
+    <image:image>
+       <image:loc>https://natashabatalha.github.io/assets/img/gallery/precision_signal.pdf</image:loc>
+       <image:caption>Exoplanet transmission spectroscopy with the James Webb Space Telescope (Hot Jupiter, warm Neptune, temperate Earth)</image:caption>
+    </image:image>
+    <image:image>
+       <image:loc>https://natashabatalha.github.io/assets/img/gallery/atmospheric_followup.png</image:loc>
+       <image:caption>Exopanets that have been followed up with atmospheric characterization (transit spectroscopy or direct imaging)</image:caption>
+    </image:image>
+  <lastmod>2018-02-26T02:44:51+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://natashabatalha.github.io/PandExo/</loc>
+  <lastmod>2018-02-01T14:36:47+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://natashabatalha.github.io/PandExo/installation.html</loc>
+  <lastmod>2018-02-01T14:36:47+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://natashabatalha.github.io/PandExo/tutorialjwst.html</loc>
+  <lastmod>2018-02-01T14:36:47+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://natashabatalha.github.io/PandExo/includeme.html</loc>
+  <lastmod>2018-02-01T14:36:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://natashabatalha.github.io/PandExo/jwstinput.html</loc>
+  <lastmod>2018-02-01T14:36:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://natashabatalha.github.io/PandExo/jwstdict.html</loc>
+  <lastmod>2018-02-01T14:36:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://natashabatalha.github.io/PandExo/tutorialhst.html</loc>
+  <lastmod>2018-02-01T14:36:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://natashabatalha.github.io/PandExo/engine.html</loc>
+  <lastmod>2018-02-01T14:36:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://natashabatalha.github.io/PandExo/genindex.html</loc>
+  <lastmod>2018-02-01T14:36:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://natashabatalha.github.io/PandExo/py-modindex.html</loc>
+  <lastmod>2018-02-01T14:36:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://natashabatalha.github.io/PandExo/search.html</loc>
+  <lastmod>2018-02-01T14:36:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://natashabatalha.github.io/PandExo/index.html</loc>
+  <lastmod>2018-02-01T14:36:47+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://natashabatalha.github.io/PandExo/_modules/engine/justdoit.html</loc>
+  <lastmod>2018-02-01T14:36:47+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://natashabatalha.github.io/PandExo/_modules/engine/justplotit.html</loc>
+  <lastmod>2018-02-01T14:36:47+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://natashabatalha.github.io/PandExo/_modules/engine/bintools.html</loc>
+  <lastmod>2018-02-01T14:36:47+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://natashabatalha.github.io/PandExo/_modules/engine/run_online.html</loc>
+  <lastmod>2018-02-01T14:36:47+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://natashabatalha.github.io/PandExo/_modules/engine/compute_noise.html</loc>
+  <lastmod>2018-02-01T14:36:47+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://natashabatalha.github.io/PandExo/_modules/engine/create_input.html</loc>
+  <lastmod>2018-02-01T14:36:47+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://natashabatalha.github.io/PandExo/_modules/engine/hst.html</loc>
+  <lastmod>2018-02-01T14:36:47+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://natashabatalha.github.io/PandExo/_modules/engine/jwst.html</loc>
+  <lastmod>2018-02-01T14:36:47+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://natashabatalha.github.io/PandExo/_modules/engine/load_modes.html</loc>
+  <lastmod>2018-02-01T14:36:47+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://natashabatalha.github.io/PandExo/_modules/engine/pandexo.html</loc>
+  <lastmod>2018-02-01T14:36:47+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://natashabatalha.github.io/PandExo/_modules/engine/ComputeZ.html</loc>
+  <lastmod>2018-02-01T14:36:47+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://natashabatalha.github.io/PandExo/_modules/engine/hst_smooth.html</loc>
+  <lastmod>2018-02-01T14:36:47+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://natashabatalha.github.io/PandExo/_modules/engine/logs.html</loc>
+  <lastmod>2018-02-01T14:36:47+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://natashabatalha.github.io/PandExo/_modules/index.html</loc>
+  <lastmod>2018-02-01T14:36:47+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://natashabatalha.github.io/PandExo/_modules/concurrent/futures/process.html</loc>
+  <lastmod>2018-02-01T14:36:47+00:00</lastmod>
+  <priority>0.26</priority>
+</url>
+
+
+</urlset>
