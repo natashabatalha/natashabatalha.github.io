@@ -1,0 +1,86 @@
+.box-set,
+.box {
+  border-radius: 6px;
+}
+.box-set {
+  position: relative;
+}
+.box {
+  background-color: rgba(255, 255, 255, 0.0);
+  height: 220px;
+  position: absolute; 
+  text-align: center;
+  width: 200px;
+}
+.box-1 {
+  border: 2px solid #339966;
+  top: 50px;
+  width: 300px;
+  left: -520px;
+  font-size: 200%;
+  font-weight: bold;
+}
+.box-2 {
+  border: 2px solid #336699;
+  top: 50px;
+  width: 310px;
+  left: -200px;
+  font-size: 200%;
+  font-weight: bold;
+}
+.box-3 {
+  border: 2px solid #00BFFF;
+  top: 50px;
+  left: 140px;
+  width: 710px;
+  font-size: 180%;
+  font-weight: bold;
+}
+.box-4 {
+  top: 350px;
+  left: 400px;
+  width: 440px;
+  font-size: 120%;
+  font-weight: bold;
+  height: 300px;
+}
+.box-5 {
+  background-color: rgba(255, 255, 255, 0.7);
+  top: 300px;
+  left: -520px;
+  width: 850px;
+  font-size: 120%;
+  font-weight: bold;
+  height: 400px;
+}
+
+.eqn_border {
+  border: 2px solid #FFFFFF;
+  width: 90%;
+  min-width: 300px;
+} 
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 300px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    right: 105%;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}

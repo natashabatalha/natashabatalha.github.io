@@ -1,0 +1,358 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>PICASO for Atmospheres</title>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+        <link href="https://fonts.googleapis.com/css?family=Raleway:400,100|Roboto+Condensed:700" rel="stylesheet" type="text/css">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="css/custom.css">
+
+        <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+
+        <link rel="stylesheet" href="http://cdn.pydata.org/bokeh/release/bokeh-0.12.6.min.css" type="text/css" />
+        <script type="text/javascript" src="http://cdn.pydata.org/bokeh/release/bokeh-0.12.6.min.js"></script>
+
+
+
+    </head>
+    <body class="is-loading">
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <div id="preloader">
+            <div class="txt">
+                <p class="txt-perc">0%</p>
+                <div class="progress"><span></span></div>
+            </div>
+        </div>
+
+        <div id="intro" class="header-container fs">
+            <div class="bcg"></div>
+            <header class="wrapper">
+                <h1 class="title">The Radiative Transfer in PICASO</h1>
+                <p><big>An explanation of the code.</big></p>
+                <p><a href="https://github.com/natashabatalha/picaso" class="button"><i class="fa fa-github fa-2x"></i></a></p>
+            </header>
+                            
+
+
+            <span class="scroll-hint">Scroll Down</span>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="#intro"><span class="nav-dot"></span><span class="nav-label">Intro</span></a></li>
+                <li><a href="#slide01"><span class="nav-dot"></span><span class="nav-label">Eqn of Radiative Transfer</span></a></li>
+                <li><a href="#slide02"><span class="nav-dot"></span><span class="nav-label">The Source Function: Single Scattering</span></a></li>
+                <li><a href="#slide03"><span class="nav-dot"></span><span class="nav-label">The Source Function: Multi Scattering 1</span></a></li>
+                <li><a href="#slide04"><span class="nav-dot"></span><span class="nav-label">The Source Function: Multi Scattering 2</span></a></li>
+                <li><a href="#slide05"><span class="nav-dot"></span><span class="nav-label">Installation</span></a></li>
+            </ul>
+        </nav>
+
+        <div id="main" class="main-container">
+
+            <article id="cb01" class="content-block">
+                <div class="wrapper">
+                    <header class="slideInUp">
+                        <h1>A Break Down of the Radiative Transfer Equation</h1>
+                    </header>
+                    <section>
+                        <p class="slideInUp slideInUp2">$$I(\tau_i, \mu) =  I(\tau_{i+1}, \mu) e^{\delta \tau_i/\mu}  - \int_0^{\delta \tau_i} S(\tau',\mu)e^{-\tau'/\mu} d\tau'/\mu.$$</p>
+                    </section>
+                </div> <!-- .wrapper -->
+            </article>
+            
+            <article id="slide01" class="slide fs">
+                <div class="bcg"></div>
+                <div class="wrapper">
+                    <header class="slideInUp">
+                        <h1>$$\color{#339966} I(\tau_i, \mu) \color{black} = \color{#336699} I(\tau_{i+1}, \mu) e^{\delta \tau_i/\mu} \color{black} - \color{#00BFFF}\int_0^{\delta \tau_i} S(\tau',\mu)e^{-\tau'/\mu} d\tau'/\mu.$$</h1>
+                    </header>
+                    <!--div class="slideInUp slideInUp2">
+                        <canvas id="canvas"></canvas>
+                    </div-->
+                    <section>
+                        <div class="box-set">
+                            <figure class="box box-1 slideInUp slideInUp2"><p>Azimuthally averaged intensity emergent from the top of layer with opacity (\(\tau\)) and outgoing angle (\(\mu\)) (see xint <a href="https://github.com/natashabatalha/picaso" class="button"><i class="fa fa-github fa-xs" style="color:white; background:grey"></i></a>)</p></figure>
+                            <figure class="box box-2 slideInUp slideInUp2"><p>Incident intensity on the lower boundary of the layer attenuated by the optical depth within the layer (\(\delta\tau\))</p></figure>
+                            <figure class="box box-3 slideInUp slideInUp2"><p>$$S(\tau',\mu)=\frac{\omega}{4\pi} F_0P_{single}(\mu, -\mu_0)e^{-\tau'/\mu_s} + \frac{\omega}{2} \int_{-1}^{1} I(\tau', \mu') P_{multi}(\mu, \mu') d\mu'$$ Source function\(=\)Single-scattered radiation\(+\)multiple-scattered radiation (integrated over all diffuse angles). Note, absence of thermal term.</p></figure>
+                            <figure class="box box-4 slideInUp slideInUp3">
+                                <p>
+                                <ul>
+                                  <li>\(\omega\): Single scattering albedo (W0 <a href="https://github.com/natashabatalha/picaso" class="button"><i class="fa fa-github fa-xs" style="color:white; background:grey"></i></a>)</li>
+                                  <li>\(F_0\):Direct stellar radiation</li>
+                                  <li>\(P_{single}(\mu,\mu_0)\):single-scattering phase function (see p_single <a href="https://github.com/natashabatalha/picaso" class="button"><i class="fa fa-github fa-xs" style="color:white; background:grey"></i></a>)</li>
+                                  <li>\(P_{multi}(\mu,\mu')\):multiple-scattering phase function (see multi_plus,multi_minus <a href="https://github.com/natashabatalha/picaso" class="button"><i class="fa fa-github fa-xs" style="color:white; background:grey"></i></a>)</li>
+                                </ul> 
+                                </p>
+                            </figure>
+                            <figure class="box box-5 slideInUp slideInUp3">
+                                <img src="img/model_schematic.png" alt="Model Schematic" width=800px>
+                            </figure>
+                        </div>
+                    </section>
+                </div> <!-- .wrapper -->
+            </article>
+
+            <article id="cb02" class="content-block">
+                <div class="wrapper">
+                    <header class="slideInUp">
+                        <h1>Integrating the Source Function</h1>
+                    </header>
+                    <section>
+                        <p class="slideInUp slideInUp2">We are going to solve the source function integration in two parts.</p>
+
+                        <p class="slideInUp slideInUp3"><big><b>Part 1: Single Scattering</b></big></p>
+                    </section>
+                </div> <!-- .wrapper -->
+            </article>
+
+            <article id="slide02" class="slide fs">
+                <div class="bcg"></div>
+                <div class="wrapper row">
+                    <div class="column">
+
+                    <header class="slideInUp">
+                        <h1>Single Scattering Component</h1>
+                    </header>
+
+                    <section>
+                        <p class="slideInUp slideInUp2"><big>$$SS=\int_0^{\delta\tau_i}\frac{\omega}{4\pi} F_0P_{single}(\mu, -\mu_0) e^{-\tau'/\mu_0}e^{-\tau'/\mu}d\tau'/\mu$$</big>The \(\tau'\) in \(e^{-\tau'/\mu_0}\) is actually comprised of two terms: 1) the integrated opacity from TOA to the top of the considered layer, and 2) the opacity within the considered layer. Therefore, we first have to replace \(e^{-\tau/\mu_0}\), with \(e^{-(\tau_i + \tau')/\mu_0}\). Now, our \(\tau'\)s in the above equation represent the same value and we can proceed with our integration.</p>
+
+                        <p class="slideInUp slideInUp2"><big>$$=\frac{\omega}{4\pi} F_0P_{single}(\mu, -\mu_0)\int_0^{\delta\tau_i}e^{-(\tau'+\tau_i)/\mu_0}e^{-\tau'/\mu} d\tau'/\mu$$</big> By integrating, we arrive at (<a href="https://github.com/natashabatalha/picaso" class="button"><i class="fa fa-github fa-xs" style="color:white; background:grey"></i></a>):</p>
+                        <p class="slideInUp slideInUp2 eqn_border"><big>$$=\frac{\omega F_0}{4\pi} P_{single}(\mu, -\mu_0) e^{-\tau_i/\mu_0} \frac{\mu_0}{\mu_0 + \mu} \left( 1- e^{-\delta \tau_i\frac{\mu+\mu_0}{\mu\mu_0}} \right)$$</big> </p>
+                        <p class="slideInUp slideInUp2" "><big><em>Options for Phase functions (\(P_{single}\)) in PICASO.</em></big>:</p>
+                    
+                        <p class="slideInUp slideInUp2" "><b>1) One term Henyey-Greenstein(<a href="https://github.com/natashabatalha/picaso" class="button"><i class="fa fa-github fa-xs" style="color:white; background:grey"></i></a>): </b>$$P_{HG}(\cos\Theta) = \frac{1-g^2}{1 + g^2 - 2g\cos(\Theta)}.$$ Not good at capturing backward scattering peak. Compare the two plots as g->1!</p>
+                    </section>
+                </div> <!-- .wrapper -->  
+                <div class="column">
+
+                    <section>
+                    <p class="slideInUp slideInUp2">
+                    <!-- BOKEH PLOTS -->
+                    <script
+                        src="js/OTHG.js"
+                        id="8891628c-91a0-4a1a-b56a-c11b9626c88e"
+                        data-bokeh-model-id="0f1dcef8-0e99-4c04-a94b-1c3b864d27d5"
+                        data-bokeh-doc-id="a608918c-9f59-485e-a881-a7e962676957"
+                    ></script>
+                    </p>
+                    <p class="slideInUp slideInUp2"><b>2) <em>Default</em>: Two term Henyey-Greenstein(<a href="https://github.com/natashabatalha/picaso" class="button"><i class="fa fa-github fa-xs" style="color:white; background:grey"></i></a>):</b> $$P_{TTHG}(\cos\Theta) = f P_{HG}(\cos\Theta,g_{f}) + (1-f)P_{HG}(\cos\Theta,g_{b}).$$ Better for capturing moderate backward scattering with high forward scattering. We set \(g_f = \bar{g}\) ,\(g_f = -\bar{g}/2\), and \(g_f = 1-g_b^2\). \(\bar{g}\) is calculated from the cloud asymmetry factor and the rayleigh and scattering opacity (see cosb<a href="https://github.com/natashabatalha/picaso" class="button"><i class="fa fa-github fa-xs" style="color:white; background:grey"></i></a>) <b>Note difference at high \(g_f\) below.</b>
+                    <!-- BOKEH PLOTS -->
+                    <script
+                        src="js/TTHG.js"
+                        id="494b173e-e303-4add-a9cb-decea743c037"
+                        data-bokeh-model-id="f8c664e5-721e-47c1-99d0-85868a0283b6"
+                        data-bokeh-doc-id="fb08582b-cfac-46fb-bb45-a7a7e95b5c8c"
+                    ></script>
+                    </p>
+                    <p class="slideInUp slideInUp2">3) & 4) TTHG with Rayleigh Phase<a href="https://github.com/natashabatalha/picaso" class="button"><i class="fa fa-github fa-xs" style="color:white; background:grey"></i></a>: 
+                    $$P_{TTRAY} = \frac{\tau_{cld}}{\tau_{scat}}P_{TTHG} + \frac{\tau_{ray}}{\tau_{scat}}P_{Ray} $$ Where the rayleigh phase function is \( \frac{3}{4}(1+\cos^2(\Theta))\)</p>
+                    </section>
+                </div>
+            </div>
+            </article>
+
+
+
+            <article id="cb03" class="content-block">
+                <div class="wrapper">
+                    <header class="slideInUp">
+                        <h1>Integrating the Source Function</h1>
+                    </header>
+                    <section>
+                        <p class="slideInUp slideInUp2">We are going to solve the source function integration in two parts.</p>
+
+                        <p class="slideInUp slideInUp3"><big><b>Part 2: Multiple Scattering</b></big></p>
+                    </section>
+                </div> <!-- .wrapper -->
+            </article>
+
+
+            <article id="slide03" class="slide fs">
+                <div class="bcg"></div>
+                <div class="wrapper row">
+                    <div class="column">
+
+                    <header class="slideInUp">
+                        <h1>Multiple Scattering Component</h1>
+                    </header>
+
+                    <section>
+                        <p class="slideInUp slideInUp2">
+                        $$MS=\int_0^{\delta\tau_i} e^{-\tau_i/\mu} \int_{-1}^1 \frac{\omega}{2} I(\tau', \mu') P_{multi}(\mu, \mu') d\mu' $$ Solving this term is a bit more complicated because we must integrate over all diffuse angles, \(\mu\). Instead of using the exact TTHG, we have to use simplified approximations. Often, infinite series of suitable orthogonal basis functions can be used (e.g. Legendre or Chebyshev). Currently PICASO only uses Legendre, although it's been shown that at higher orders and high \(g\) <a href=https://www.hindawi.com/journals/amete/2017/1835169/">Chebyshev polynomials</a> might be more accurate. </p>
+
+                        <p class="slideInUp slideInUp2">
+                        Legendre polynomials, allow the \(P_{multi}(\cos\Theta) \approx \sum_{l=0}^{N-1} \beta_lP_l(\cos\Theta)\). Where \(P_l(cos\Theta)\) are the <a href='http://mathworld.wolfram.com/LegendrePolynomial.html'>polynomials</a>. \(\beta_l\) are the moments of the phase function. They can be written out as 
+                        $$\beta_l = \frac{2l + 1}{2} \int_1^{-1} P_l(\cos)p(\cos\Theta)d\cos\Theta$$
+                        This should look familiar, as the asymmetry factor is \(g = \frac{1}{2} \int_1^{-1}P_l(\cos)p(\cos\Theta)d\cos\Theta \). Therefore, the moment can be simplified to \(\beta_l = (2l + 1)g_l \). The first moment is the same asymmetry factor we've been discussing (cosb<a href="https://github.com/natashabatalha/picaso" class="button"><i class="fa fa-github fa-xs" style="color:white; background:grey"></i></a>). The second moment is not as trivial. Below are three ways in which PICASO handles multiple scattering.
+                        </p>
+                        <p class="slideInUp slideInUp2"><big><em>Option 1) N=1 Legendre expansion(<a href="https://github.com/natashabatalha/picaso" class="button"><i class="fa fa-github fa-xs" style="color:white; background:grey"></i></a>) </em></big></p>
+                        <p class="slideInUp slideInUp2">With \(\bar{g}\), the N=1 expansion is simply: $$P_{multi}(\cos\Theta) = 1 + 3 \bar{g}\cos\Theta = 1 + 3  \bar{g} \mu\mu'$$
+                        Putting this back into <em>MS</em> creates a simple integral to manipulate.  
+                        </p>
+                    </section>
+                </div> <!-- .wrapper -->  
+                <div class="column">
+
+                    <section>
+                    <p class="slideInUp slideInUp2"><big><em>Option 2) N=2 Legendre expansion(<a href="https://github.com/natashabatalha/picaso" class="button"><i class="fa fa-github fa-xs" style="color:white; background:grey"></i></a>)</em></big></p>
+                    <p class="slideInUp slideInUp2">The calculation of the second moment gets sticky.
+                        <a class="tooltip">Many authors
+                            <span class="tooltiptext">Originating from K.Snook's dissertation work. Then later published in Cahoy+2010</span> 
+                        </a> leverage the fact that the second order dependence on \(\cos^2\Theta\) is the same as that of Rayleigh scattering (\( \frac{3}{4}(1+\cos^2(\Theta))\)). By forcing \(\beta_l=(2l+1)g_l=g_2\) to yield the Rayleigh phase function in the limit where Rayleigh opacity dominates, we can accurately account for Rayleigh scattering. There we define (gcos2 <a href="https://github.com/natashabatalha/picaso" class="button"><i class="fa fa-github fa-xs" style="color:white; background:grey"></i></a>) 
+                        $$ \beta_2=\frac{\tau_{ray}}{2\tau_{scat}} =g_2$$ 
+                        which tends to 1/2 when \(\tau_{scat}\) is dominated by Rayleigh opacity. The full phase function is then 
+                        $$P_{multi}(\mu\mu') = 1 + 3\bar{g} \mu\mu' + g_2 \frac{1}{2}\left(3\mu^2 \mu'^2 - 1 \right).$$ Note, the equations that are hyperlinked have been carried through the integration, which we will do on the next slide.
+                        </p>
+                    <p class="slideInUp slideInUp2"><big><em>Option 3) N=2 Legendre expansion with \(\delta-Scaled\) Approximation(<a href="https://github.com/natashabatalha/picaso" class="button"><i class="fa fa-github fa-xs" style="color:white; background:grey"></i></a>)</em></big></p>
+                    <p class="slideInUp slideInUp2">As you will see in the next slide, low order (N=1,2) phase functions are not adequate enough to represent high forward scattering, i.e. highly asymmetric scatteres. Although we won't go through it in depth here, one way of making lower order approximations more accurate is to leverage the <a href="https://www.researchgate.net/publication/23912944_The_Delta-Eddington_Approximation_for_Radiative_Flux_Transfer">\(\delta-Eddington\) Approximation</a>. In this approxmation, \(\bar{g}, \tau, \omega\) are all scaled to more accurately capture the forward scattering peak(<a href="https://github.com/natashabatalha/picaso" class="button"><i class="fa fa-github fa-xs" style="color:white; background:grey"></i></a>)
+                    $$g'=\frac{\bar{g}}{1+\bar{g}}, \tau' = \tau(1-\omega\bar{g}^2), \omega' = \frac{\omega(1-\bar{g}^2)}{1-\omega\bar{g}^2}$$</p>
+                    </section>
+                </div>
+            </div>
+            </article>
+
+
+            <article id="cb04" class="content-block">
+                <div class="wrapper">
+                    <header class="slideInUp">
+                        <h1>More on Multiple Scattering</h1>
+                    </header>
+                    <section>
+                        <p class="slideInUp slideInUp2">Yippee.</p>
+                    </section>
+                </div> <!-- .wrapper -->
+            </article>
+
+           <article id="slide04" class="slide fs">
+                <div class="bcg"></div>
+                <div class="wrapper row">
+
+                <div class="column">
+                    <header class="slideInUp">
+                        <h1>Integrating the Mutiple Scattering Term</h1>
+                    </header>
+                    <section>
+                    <p class="slideInUp slideInUp2">Avert your eyes if you don't care for math. Starting point: 
+                    </p>
+                    <p class="slideInUp slideInUp2"><small>$$MS=\int_0^{\delta\tau_i} e^{-\tau_i/\mu} \int_{-1}^1 \frac{\omega}{2} I(\tau', \mu') \left( 1 + 3\bar{g} \mu\mu' + \frac{g_2}{2} (3\mu^2 \mu'^2 - 1) \right) d\mu' d\tau'/\mu$$</small>
+                    There are three terms in the integration over \(\mu'\). Let's step through them individually. 
+                    </p>
+                    <p class="slideInUp slideInUp2"><i class="fa fa-check fa-2x" style="color:grey;"></i>Term 1 \(= \omega \frac{1}{2}\int_{-1}^1 I(\tau', \mu')d\mu' =\omega \bar{I}(\tau')\) </p>
+                    <p class="slideInUp slideInUp2">\( \bar{I}=\frac{1}{2}\int I d\mu'\) is just the mean intensity, which we can use the 2-stream approximation to calculate \( \bar{I}=\frac{I^{+} + I^{-}}{2} =\frac{1}{4\pi\bar{\mu}} (F^+-F^-) \). </p>
+                    <p class="slideInUp slideInUp2"><i class="fa fa-check fa-2x" style="color:grey;"></i>Term 2 \(= \omega \frac{3\bar{g}\mu}{2}\int_{-1}^1 \mu' I(\tau', \mu')d\mu' =\omega \frac{1}{2\pi} \frac{3\bar{g}\mu}{2} F(\tau')\) $$= \omega \frac{1}{2\pi} \frac{3\bar{g}\mu}{2}(F^+-F^-)$$ </p> 
+                    <p class="slideInUp slideInUp2">This is because first moment of the intensity field is \(F=2\pi \int I \mu'd\mu'\). In the 2-stream approximation \(F=F^+-F^-\).</p>
+                    <p class="slideInUp slideInUp2"><i class="fa fa-check fa-2x" style="color:grey;"></i>Term 3 \(= \omega \frac{g_2}{2}\int_{-1}^1 I(\tau', \mu') (3\mu^2\mu'^2 - 1)d\mu'\)</p>
+                    <p class="slideInUp slideInUp2">If we define the second moment of intensity \(I_2 = \int_1^{-1} \mu'^2 I d\mu'\) the solution becomes:
+                    \( \frac{\omega g_2}{2} \left( 3\mu^2 I_2(\tau') - \bar{I}(\tau') \right) \). The best way of dealing with this is to create a mean square angle,
+                    \(\bar{\mu_2}^2= \int\mu'^2Id\mu'/ \int Id\mu' \). Then we can rewrite Term 3 with just the fluxes: \( = \frac{\omega g_2}{2} (3 \mu^2 \bar{\mu_2}^2 - 1)(\frac{1}{4\pi\bar{\mu}}) (F^+ + F^-) \). </p>                 
+                    <p class="slideInUp slideInUp2"><i class="fa fa-check fa-2x" style="color:green;"></i>
+                    \(MS = \frac{\omega}{2\pi}\int_0^{\delta\tau_i} e^{-\tau_i/\mu} [ F^+(1 + \frac{3\bar{g}\mu}{2} +  \frac{g_2}{2}(3 \mu^2 \bar{\mu_2}^2 - 1) ) \) $$ + F^-(1 - \frac{3\bar{g}\mu}{2} +  \frac{g_2}{2}(3 \mu^2 \bar{\mu_2}^2 - 1) )]$$
+                    </small>
+                    </p>
+
+                    </section>
+                </div>
+
+                    <div class="column">
+
+                    <header class="slideInUp">
+                        <h1>A Comparison of Multiple Scattering Approximations</h1>
+                    </header>
+
+                    <section>
+                     <p class="slideInUp slideInUp2">
+                        <big></big>
+                    <!-- BOKEH PLOTS -->
+                    <script
+                        src="js/multi_phase.js"
+                        id="e81ccd57-d171-4083-879a-be28fc6797f0"
+                        data-bokeh-model-id="76d23ed0-7fd1-4a2a-8a8f-9e333edfe42a"
+                        data-bokeh-doc-id="b34b1489-3a04-49c0-9f2f-eaeda082ee12"
+                    ></script>
+
+                        </p>
+                    <p class="slideInUp slideInUp2">Takeaway points: 
+                        <ul class="slideInUp slideInUp2">
+                            <li><b>At \(g=0\), 2nd order Legendre polynomials approach Rayleigh scattering phase function</b></li>
+                            <li><b>Approximations are only decent at low \(g=0\) <em>(Note, that in cases where these phase functions have been compared for accuracy they always show \(g\approx0.1\))</em></b></li>
+                            <li><b>Delta-Scaling for asymmetry goes as \(g_d=g/(g+1)\), so the forward scattering is reduced to regions where it is in <em>higher</em> agreement with TTHG.</b></li>
+                        </ul>
+                    </p>
+                    </section>
+                </div> <!-- .wrapper -->  
+
+            </div>
+            </article>
+
+            <article id="cb05" class="content-block">
+                <div class="wrapper">
+                    <header class="slideInUp">
+                        <h1>Coming soon... </h1>
+                    </header>
+                    <section>
+                        <p class="slideInUp slideInUp2">Explanation of 3D integration and model comparisons</p>
+                    </section>
+                </div> <!-- .wrapper -->
+            </article>
+
+            <article id="slide05" class="slide fs">
+                <div class="bcg"></div>
+                <div class="wrapper">
+                    <header class="slideInUp" style="color:white;">
+                        <h1>Want to get started?</h1>
+                    </header>
+                    <section>
+                        <p class="slideInUp slideInUp2">Install the code and explore the notebooks</p>
+                        <div class="slideInUp slideInUp3">
+                            <a href="https://natashabatalha.github.io/picaso" class="button">Install</a> <a href="https://natashabatalha.github.io/picaso" class="button">Explore</a>
+                        </div>
+
+                    </section>
+                </div> <!-- .wrapper -->
+            </article>
+
+        </div> <!-- #main-container -->
+
+        <div class="footer-container">
+            <footer class="wrapper">
+                <h3>2018 <a href="https://natashabatalha.github.io" target="_blank">Natasha E. Batalha Home</a> | <a href="https://twitter.com/natashabatalha" target="_blank">@natashabatalha</a> </h3>
+            </footer>
+        </div>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/TweenMax.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/3.2.0/imagesloaded.pkgd.min.js"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/plugins/ScrollToPlugin.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js"></script>
+
+        <script src="js/main.js"></script>
+
+        <script type="text/x-mathjax-config">
+                MathJax.Hub.Config({ TeX: { extensions: ["color.js"] }});
+        </script>
+
+    </body>
+</html>
