@@ -7,7 +7,7 @@
 }
 .box {
   background-color: rgba(255, 255, 255, 0.0);
-  height: 220px;
+  height: 150px;
   position: absolute; 
   text-align: center;
   width: 200px;
@@ -15,51 +15,55 @@
 .box-1 {
   border: 2px solid #339966;
   top: 50px;
-  width: 300px;
-  left: -520px;
-  font-size: 200%;
+  width: 250px;
+  left: -360px;
+  font-size: 100%;
   font-weight: bold;
 }
 .box-2 {
   border: 2px solid #336699;
   top: 50px;
-  width: 310px;
-  left: -200px;
-  font-size: 200%;
+  width: 250px;
+  left: -100px;
+  font-size: 100%;
   font-weight: bold;
 }
 .box-3 {
-  border: 2px solid #00BFFF;
+  border: 2px solid #6600cc;
   top: 50px;
-  left: 140px;
-  width: 710px;
-  font-size: 180%;
+  left: 160px;
+  width: 500px;
+  font-size: 100%;
   font-weight: bold;
 }
 .box-4 {
-  top: 350px;
-  left: 400px;
-  width: 440px;
-  font-size: 120%;
+  border: 2px solid #6600cc;
+  top: 280px;
+  left: 250px;
+  width: 380px;
+  font-size: 100%;
   font-weight: bold;
-  height: 300px;
+  height: 220px;
 }
 .box-5 {
   background-color: rgba(255, 255, 255, 0.7);
-  top: 300px;
-  left: -520px;
-  width: 850px;
-  font-size: 120%;
+  top: 250px;
+  left: -380px;
+  width: 600px;
+  font-size: 100%;
   font-weight: bold;
-  height: 400px;
+  height: 300px;
 }
 
-.eqn_border {
+.eqn_border1 {
   border: 2px solid #FFFFFF;
   width: 90%;
   min-width: 300px;
 } 
-
+.eqn_border2 {
+  border: 2px solid black;
+  width: 100%;
+} 
 .tooltip {
     position: relative;
     display: inline-block;
@@ -84,3 +88,6 @@
 .tooltip:hover .tooltiptext {
     visibility: visible;
 }
+
+
+

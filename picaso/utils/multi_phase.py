@@ -8,16 +8,16 @@ from bokeh.models import CustomJS, Slider,Div
 from bokeh.resources import CDN
 from bokeh.embed import autoload_static
 
-
+tools='pan,save,reset'
 
 def phasefun(g, azimuths):
     return (1.0-g**2)/np.sqrt(1+ g**2 - 2.0*g * np.cos(azimuths))**3.0
 
 
-fig = Figure(width = 600, height = 300,y_range=[-4,4] ,x_range=[-4,20], #x_range=[0,np.pi],y_range=[1e-1,1e3],y_axis_type='log', #
-    y_axis_label='Light from here')
-fige = Figure(width = 600, height = 200 ,x_range=[0,np.pi], y_axis_type='log',y_range=[1e-4,1e5], #x_range=[0,np.pi],y_range=[1e-1,1e3],y_axis_type='log', #
-    y_axis_label='Error')
+fig = Figure(width = 500, height = 200,y_range=[-4,4] ,x_range=[-4,20], #x_range=[0,np.pi],y_range=[1e-1,1e3],y_axis_type='log', #
+    y_axis_label='Light from here',tools=tools)
+fige = Figure(width = 500, height = 150 ,x_range=[0,np.pi],y_range=[0,250], #x_range=[0,np.pi],y_range=[1e-1,1e3],y_axis_type='log', #
+    y_axis_label='% Error',tools=tools)
 g = 0.6
 azimuths = np.linspace(0, 2 * np.pi, 10000)
 #ranges = np.array([2, 4, 6, 8])
@@ -26,7 +26,7 @@ for g in list(np.linspace(0,0.9,10))+[0]:
     gb = -g/2
     f = 1-gb**2
 
-    phase = f*phasefun(gf,azimuths) + (1-f)*phasefun(gb,azimuths)
+    phase = f*phasefun(gf,azimuths) + (1-f)*phasefun(gb,azimuths) + 0.5
 
     xx = phase*np.cos(azimuths)#azimuths#
     yy = phase*np.sin(azimuths)#phase#
@@ -72,7 +72,7 @@ ey3 = abs(y-y3)/y
 
 source = ColumnDataSource(data=dict(x=x, y=y, az = azimuths, x1=x1, y1=y1, x2=x2, y2=y2, x3=x3, y3=y3, ey1=ey1,ey2=ey2,ey3=ey3))
 #polar
-fig.line('x','y', line_width =6, alpha=0.5, color=Colorblind8[-1],source=source,legend='TTGH')
+fig.line('x','y', line_width =6, alpha=0.5, color=Colorblind8[-1],source=source,legend='TTGH+Ray')
 fig.line('x1','y1', line_width =6, alpha=0.5, color=Colorblind8[0],source=source,legend='Legendre,N=1')
 fig.line('x2','y2', line_width =6, alpha=0.5, color=Colorblind8[3],source=source,legend='Legendre,N=2')
 fig.line('x3','y3', line_width =6, alpha=0.5, color=Colorblind8[5],source=source,legend='Legendre, N=2, d-Scale')
@@ -109,21 +109,21 @@ callback = CustomJS(args=dict(source=source), code="""
     var f = 1 - Math.pow(gb,2);
 
     for (var i = 0; i < x.length; i++) {
-        phase = f*phasefun(gf,az[i]) + (1-f)*phasefun(gb,az[i]);
+        phase = f*phasefun(gf,az[i]) + (1-f)*phasefun(gb,az[i]) + 0.5;
         x[i] = phase*Math.cos(az[i]);
         y[i] = phase*Math.sin(az[i]);
         phase = 1 + 3.0 * g *Math.cos(az[i]);
         x1[i] = phase*Math.cos(az[i]);
         y1[i] = phase*Math.sin(az[i]);
-        ey1[i] = Math.abs(ey1[i] - y[i])/y[i];
+        ey1[i] = 100*Math.abs(y1[i] - y[i])/y[i];
         phase = 1 + 3.0 * g * Math.cos(az[i]) + 0.5*0.5*(3.0*Math.cos(az[i])**2.0 - 1.0);
         x2[i] = phase*Math.cos(az[i]);
         y2[i] = phase*Math.sin(az[i]);
-        ey2[i] = Math.abs(ey2[i] - y[i])/y[i];
+        ey2[i] = 100*Math.abs(y2[i] - y[i])/y[i];
         phase = 1 + 3.0 * g/(1+g) * Math.cos(az[i]) + 0.5*0.5*(3.0*Math.cos(az[i])**2.0 - 1.0);
         x3[i] = phase*Math.cos(az[i]);
         y3[i] = phase*Math.sin(az[i]);
-        ey3[i] = Math.abs(ey3[i] - y[i])/y[i];
+        ey3[i] = 100*Math.abs(y3[i] - y[i])/y[i];
     }
     source.change.emit();
 """)
@@ -153,7 +153,7 @@ fig.yaxis.axis_line_alpha  =0
 fig.xaxis.axis_line_alpha  =0
 fig.yaxis.axis_label_text_font_size = '20px'
 fig.xaxis.axis_label_text_font_size = '20px'
-fig.legend.label_text_font_size = '20px'
+fig.legend.label_text_font_size = '16px'
 fig.border_fill_color = 'white'
 fig.border_fill_alpha = 0.5
 fig.legend.background_fill_color = "white"
@@ -181,7 +181,7 @@ output_file("sample.html", title="Sample example")
 show(layout)
 
 js, tag = autoload_static(layout, CDN, "js/multi_phase.js")
-js_file = open("/Users/natashabatalha/Documents/picaso_derivations/js/multi_phase.js",'w')
+js_file = open("/Users/natashabatalha/Documents/natashabatalha.github.io/picaso/js/multi_phase.js",'w')
 js_file.write(js)
 print(tag)
 js_file.close()
