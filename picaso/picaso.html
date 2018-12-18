@@ -83,7 +83,7 @@
                 <div class="bcg"></div>
                 <div class="wrapper">
                     <header class="slideInUp">
-                        <h2>$$\color{#339966} I(\tau_i, \mu) \color{black} = \color{#336699} I(\tau_{i+1}, \mu) e^{\delta \tau_i/\mu} \color{black} - \color{#6600cc}\int_0^{\delta \tau_i} S(\tau',\mu)e^{-\tau'/\mu} d\tau'/\mu.$$</h2>
+                        <h2>$$\color{#339966}{ I(\tau_i, \mu)} \color{black}{ =} \color{#336699} {I(\tau_{i+1}, \mu) e^{\delta \tau_i/\mu}} \color{black} {- } \color{#6600cc}{\int_0^{\delta \tau_i} S(\tau',\mu)e^{-\tau'/\mu} d\tau'/\mu}.$$</h2>
                     </header>
                     <!--div class="slideInUp slideInUp2">
                         <canvas id="canvas"></canvas>
@@ -240,7 +240,7 @@
                     <section>
                         <p class="slideInUp slideInUp2">Multiple scattering is a bit more involved because we must integrate over all diffuse angles, \(\mu\). </p>
                         <p class="slideInUp slideInUp2">\(\int_0^{\delta \tau_i} S(\tau',\mu)e^{-\tau'/\mu} d\tau'/\mu\)</p>
-                        <p class="slideInUp slideInUp2">$$ =\int_0^{\delta \tau_i} \left[ \frac{\omega}{4\pi} F_0P_{single}(\mu, -\mu_0)e^{-\tau'/\mu_s} \color{#DF01D7}+ \frac{\omega}{2} \int_{-1}^{1} I(\tau', \mu') P_{multi}(\mu, \mu') d\mu' \right] d\tau'/\mu$$</p>
+                        <p class="slideInUp slideInUp2">$$ =\int_0^{\delta \tau_i} \left[ \frac{\omega}{4\pi} F_0P_{single}(\mu, -\mu_0)e^{-\tau'/\mu_s} +\color{#DF01D7}{\frac{\omega}{2} \int_{-1}^{1} I(\tau', \mu') P_{multi}(\mu, \mu') d\mu'} \right] d\tau'/\mu$$</p>
 
                         <p class="slideInUp slideInUp2">
                         Exactly as we did with single scattering, we must pick a functional form for the phase function. Because of the extra integration, we will have to deviate from the TTHG+Rayleigh approach. Often, infinite series of suitable orthogonal basis functions can be used (e.g. Legendre or Chebyshev). Currently <code class="docutils literal"><span class="pre">PICASO</span></code> only uses Legendre, although it's been shown that at higher orders and high \(g\) <a href=https://www.hindawi.com/journals/amete/2017/1835169/">Chebyshev polynomials</a> might be more accurate. </p>
