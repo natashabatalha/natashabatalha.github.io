@@ -90,16 +90,16 @@
                     </div-->
                     <section>
                         <div class="box-set">
-                            <figure class="box box-1 slideInUp slideInUp2"><p>Azimuthally averaged intensity emergent from the top of layer with opacity (\(\tau\)) and outgoing angle (\(\mu\)) (see xint <a href="https://github.com/natashabatalha/picaso" class="button"><i class="fa fa-github fa-xs" style="color:white; background:grey"></i></a>)</p></figure>
+                            <figure class="box box-1 slideInUp slideInUp2"><p>Azimuthally averaged intensity emergent from the top of layer with opacity (\(\tau\)) and outgoing angle (\(\mu\)) (see xint <a href="https://github.com/natashabatalha/picaso/blob/5b4d0ce548d21d4cc76c9885d7dd43dbd78c90c6/picaso/fluxes.py#L908" class="button"><i class="fa fa-github fa-xs" style="color:white; background:grey"></i></a>)</p></figure>
                             <figure class="box box-2 slideInUp slideInUp2"><p>Incident intensity on the lower boundary of the layer attenuated by the optical depth within the layer (\(\delta\tau\))</p></figure>
                             <figure class="box box-3 slideInUp slideInUp2"><p>$$S(\tau',\mu)=\frac{\omega}{4\pi} F_0P_{single}(\mu, -\mu_0)e^{-\tau'/\mu_s} + \frac{\omega}{2} \int_{-1}^{1} I(\tau', \mu') P_{multi}(\mu, \mu') d\mu'$$ Source function\(=\)Single-scattered radiation\(+\)multiple-scattered radiation (integrated over all diffuse angles). Note, absence of thermal term.</p></figure>
                             <figure class="box box-4 slideInUp slideInUp3">
                                 <p>
                                 <ul>
-                                  <li>\(\omega\): Single scattering albedo (W0 <a href="https://github.com/natashabatalha/picaso" class="button"><i class="fa fa-github fa-xs" style="color:white; background:grey"></i></a>)</li>
+                                  <li>\(\omega\): Single scattering albedo (W0 <a href="https://github.com/natashabatalha/picaso/blob/5b4d0ce548d21d4cc76c9885d7dd43dbd78c90c6/picaso/optics.py#L265" class="button"><i class="fa fa-github fa-xs" style="color:white; background:grey"></i></a>)</li>
                                   <li>\(F_0\):Direct stellar radiation</li>
-                                  <li>\(P_{single}(\mu,\mu_0)\):single-scattering phase function (see p_single <a href="https://github.com/natashabatalha/picaso" class="button"><i class="fa fa-github fa-xs" style="color:white; background:grey"></i></a>)</li>
-                                  <li>\(P_{multi}(\mu,\mu')\):multiple-scattering phase function (see multi_phase <a href="https://github.com/natashabatalha/picaso" class="button"><i class="fa fa-github fa-xs" style="color:white; background:grey"></i></a>)</li>
+                                  <li>\(P_{single}(\mu,\mu_0)\):single-scattering phase function (see p_single <a href="https://github.com/natashabatalha/picaso/blob/5b4d0ce548d21d4cc76c9885d7dd43dbd78c90c6/picaso/fluxes.py#L869" class="button"><i class="fa fa-github fa-xs" style="color:white; background:grey"></i></a>)</li>
+                                  <li>\(P_{multi}(\mu,\mu')\):multiple-scattering phase function (see multi_phase <a href="https://github.com/natashabatalha/picaso/blob/5b4d0ce548d21d4cc76c9885d7dd43dbd78c90c6/picaso/fluxes.py#L835"><i class="fa fa-github fa-xs" style="color:white; background:grey"></i></a>)</li>
                                 </ul> 
                                 </p>
                             </figure>
@@ -138,7 +138,7 @@
 
                         <p class="slideInUp slideInUp2">First, the \(\tau'\) in \(e^{-\tau'/\mu_0}\) is actually comprised of two terms: 1) the integrated opacity from TOA to the top of the considered layer, and 2) the opacity within the considered layer. Therefore, we first have to replace \(e^{-\tau/\mu_0}\), with \(e^{-(\tau_i + \tau')/\mu_0}\). Now, our \(\tau'\)s in the above equation represent the same value and we can proceed with our integration.</p>
 
-                        <p class="slideInUp slideInUp2">$$\color{yellow}{=\frac{\omega}{4\pi} F_0P_{single}(\mu, -\mu_0)\int_0^{\delta\tau_i}e^{-(\tau'+\tau_i)/\mu_0}e^{-\tau'/\mu} d\tau'/\mu}$$ By integrating, we arrive at the final term, which can easily be ffound in the code here(<a href="https://github.com/natashabatalha/picaso" class="button"><i class="fa fa-github fa-xs" style="color:white; background:grey"></i></a>):</p>
+                        <p class="slideInUp slideInUp2">$$\color{yellow}{=\frac{\omega}{4\pi} F_0P_{single}(\mu, -\mu_0)\int_0^{\delta\tau_i}e^{-(\tau'+\tau_i)/\mu_0}e^{-\tau'/\mu} d\tau'/\mu}$$ By integrating, we arrive at the final term, which can easily be found in the code here(<a href="https://github.com/natashabatalha/picaso/blob/5b4d0ce548d21d4cc76c9885d7dd43dbd78c90c6/picaso/fluxes.py#L908"><i class="fa fa-github fa-xs" style="color:white; background:grey"></i></a>):</p>
                         <p class="slideInUp slideInUp2 eqn_border1">$$SS=\frac{\omega F_0}{4\pi} P_{single}(\mu, -\mu_0) e^{-\tau_i/\mu_0} \frac{\mu_0}{\mu_0 + \mu} \left( 1- e^{-\delta \tau_i\frac{\mu+\mu_0}{\mu\mu_0}} \right)$$ </p>
                         <p class="slideInUp slideInUp2">We're not done yet! We still have to choose a formalism for the phase function, \(P_{single}\).</p>
                     </section>
@@ -181,13 +181,13 @@
                     </header>
                         <section>
                         <p class="slideInUp slideInUp2">If the OTHG phase function was all we used we'd fail to capture both the symmetric nature of Rayleigh scatterers, and the hightly asymmetric nature of cloud particles. We also need a methodology that captures both forward, \(g_f\), and backwards, \(g_b\), scattering--hence the <font color="yellow">Two Term HG (TTHG)</font> phase function.</p>
-                        <p class="slideInUp slideInUp2"><b>The form of the TTHG is (<a href="https://github.com/natashabatalha/picaso" class="button"><i class="fa fa-github fa-xs" style="color:white; background:grey"></i></a>):</b> $$P_{TTHG}(\cos\Theta) = f P_{OTHG}(\cos\Theta,g_{f}) + (1-f)P_{OTHG}(\cos\Theta,g_{b}).$$ 
+                        <p class="slideInUp slideInUp2"><b>The form of the TTHG is (<a href="https://github.com/natashabatalha/picaso/blob/5b4d0ce548d21d4cc76c9885d7dd43dbd78c90c6/picaso/fluxes.py#L882" class="button"><i class="fa fa-github fa-xs" style="color:white; background:grey"></i></a>):</b> $$P_{TTHG}(\cos\Theta) = f P_{OTHG}(\cos\Theta,g_{f}) + (1-f)P_{OTHG}(\cos\Theta,g_{b}).$$ 
 
                         In addition to having two \(g\)'s, we also have a new parameter \(f\)--the fraction of forward to back-scattering. </p>
 
                         <p class="slideInUp slideInUp2"><font color="yellow">The TTHG formalism can be set using the key <code class="docutils literal"><span class="pre">approx['single']="TTHG"</span></code> in <code class="docutils literal"><span class="pre">PICASO</span></code></font>. But we must also define \(f, g_f\), and \(g_b\).</p>
 
-                         <p class="slideInUp slideInUp2"> By default, we set \(g_f = \bar{g}\) ,\(g_b = -\bar{g}/2\), and \(f = 1-g_b^2\). \(\bar{g}\) is calculated from the cloud asymmetry factor, the rayleigh and the cloud scattering opacity (see cosb<a href="https://github.com/natashabatalha/picaso" class="button"><i class="fa fa-github fa-xs" style="color:white; background:grey"></i></a>). But, users can experiment with their own specifications.</p>
+                         <p class="slideInUp slideInUp2"> By default, we set \(g_f = \bar{g}\) ,\(g_b = -\bar{g}/2\), and \(f = 1-g_b^2\). \(\bar{g}\) is calculated from the cloud asymmetry factor, the rayleigh and the cloud scattering opacity (see cosb<a href="https://github.com/natashabatalha/picaso/blob/5b4d0ce548d21d4cc76c9885d7dd43dbd78c90c6/picaso/optics.py#L259" class="button"><i class="fa fa-github fa-xs" style="color:white; background:grey"></i></a>). But, users can experiment with their own specifications.</p>
                         <p class="slideInUp slideInUp2">The last step is to incorporate the Rayleigh phase function. <font color="yellow">The TTHG+Rayleigh formalism can be set using the key <code class="docutils literal"><span class="pre">approx['single']="TTHG_Ray"</span></code> in <code class="docutils literal"><span class="pre">PICASO</span></code></font></p>
                         </section>
                     </div> <!-- .wrapper -->  
@@ -387,7 +387,7 @@
                     <p class="slideInUp slideInUp2">Since the fluxes are a function of \(\tau\), we cannot simply integrate the function we just derived:</p>         
                     <p class="slideInUp slideInUp2">
                     $$MS = \frac{\omega}{2\pi}\int_0^{\delta\tau_i} e^{-\tau_i/\mu} [ F^+(1 + \frac{3\bar{g}\mu}{2} +  \frac{g_2}{2}(3 \mu^2 \bar{\mu_2}^2 - 1) )  + F^-(1 - \frac{3\bar{g}\mu}{2} +  \frac{g_2}{2}(3 \mu^2 \bar{\mu_2}^2 - 1) )] d\tau'/\mu $$
-                    For clarity, let's define: \(G^+=1 + \frac{3}{2}\bar{g}\mu^2 + \frac{g_2}{2}(3 \mu^2 \bar{\mu_2}^2 - 1) \) and \(G^-=1 - \frac{3}{2}\bar{g}\mu^2 + \frac{g_2}{2}(3 \mu^2 \bar{\mu_2}^2 - 1) \) (called multi_plus, multi_minus in <a href="https://github.com/natashabatalha/picaso" class="button"><i class="fa fa-github fa-xs" style="color:white; background:grey"></i></a>) </p>
+                    For clarity, let's define: \(G^+=1 + \frac{3}{2}\bar{g}\mu^2 + \frac{g_2}{2}(3 \mu^2 \bar{\mu_2}^2 - 1) \) and \(G^-=1 - \frac{3}{2}\bar{g}\mu^2 + \frac{g_2}{2}(3 \mu^2 \bar{\mu_2}^2 - 1) \) (called multi_plus, multi_minus in <a href="https://github.com/natashabatalha/picaso/blob/5b4d0ce548d21d4cc76c9885d7dd43dbd78c90c6/picaso/fluxes.py#L842" class="button"><i class="fa fa-github fa-xs" style="color:white; background:grey"></i></a>) </p>
                     <p class="slideInUp slideInUp2"><a href="http://adsabs.harvard.edu/abs/1992Icar...95...24T">Toon+1992</a> showed that all two-stream equations have the same general form:
                     $$F^+ = k_1e^{\lambda\tau} + \Gamma k_2e^{-\lambda\tau} + C^+(\tau), 
                     F^- = \Gamma k_1e^{\lambda\tau} + k_2e^{-\lambda\tau} + C^-(\tau)$$
@@ -406,7 +406,7 @@
                     \frac{\omega}{2 \pi} e^{-\tau_i/\mu} \left( C^+G^+ + C^-G^- \right) \frac{\mu_0}{\mu +\mu_0} \left(1 - e^{\frac{-\delta \tau_i (\mu_0 + \mu)}{\mu_0\mu}} \right)
                     $$</p>
                     <p class="slideInUp slideInUp2">
-                    DONE! We can combine with <a href="#slide02">SS</a> to get the full terms. The equation in <span class="pre">PICASO</span></code> can be found at <a href="https://github.com/natashabatalha/picaso" class="button"><i class="fa fa-github fa-xs" style="color:white; background:grey"></i></a>.
+                    DONE! We can combine with <a href="#slide02">SS</a> to get the full terms. The equation in <span class="pre">PICASO</span></code> can be found at <a href="https://github.com/natashabatalha/picaso/blob/5b4d0ce548d21d4cc76c9885d7dd43dbd78c90c6/picaso/fluxes.py#L907" class="button"><i class="fa fa-github fa-xs" style="color:white; background:grey"></i></a>.
                     </p>
                     </section>
                 </div> <!-- .wrapper -->  
