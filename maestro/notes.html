@@ -1,0 +1,120 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by Pixelarity
+	pixelarity.com | hello@pixelarity.com
+	License: pixelarity.com/license
+-->
+<html>
+	<head>
+		<title>MAESTRO | Notes</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="Stylesheets/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">MAESTRO</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li class="active"><a href="index.html#header">Project Updates</a></li>
+							<li><a href="timeline.html">Timeline</a></li>
+							<li><a href="generic.html">Tasks & Team</a></li>
+							<li><a href="elements.html">Future Mtg Topics</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="https://github.com/exoarc" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<span class="date">June 23, 2019</span>
+									<h2 id="exopag2019">ExoPag</h2>
+									<p>Discussion of Community Needs for Molecular Opacities/Laboratory Astrophysics</p>
+									<a href="pdfs/127_kempton_batalha_molecular_oacities.pdf" class="button primary medium">Full Slide Deck</a>
+								</header>
+								<h3>Summary of Talk</h3>
+									<ul>
+										<li>Description of why opacities are needed for exoplanet science</li>
+										<li>Description of how opacities are calculated</li>
+										<li>Description of the bottlenecks to computing opacities</li>
+										<li>Description of MAESTRO team goals</li>
+										<li>Questions posed to the community
+											<ol> 
+												<li>What data products should be given highest priority?</li>
+												<li>What code features are needed?</li>
+												<li>What new molecules do you need?</li>
+											</ol>
+										</li>
+									</ul>								
+								<h3>Summary of Discussion</h3>
+									<ul>
+										<li><b>DOI's for database entries:</b> Beyond providing citations for each data bundle, it was suggested that we also create a formal DOI system. Thoughts?  
+										</li>
+										<li><b>Correlated-K's:</b> There was a push for providing Correlated-K tables (in addition to code) but we'd have to think about how to service this. The comment came from Shawn Domagal-Goldman, who is focused on terrestrial atmospheres, so that in and of itself would be tricky. 
+										</li>
+										<li><b>Aggregated Line List DB:</b> Huge push for aggregated line list database that has "best practices" line lists to use. We need to make sure that this is carefully priced out on AWS before forming aggreing to do this. 
+										</li>
+										<li>No suggestions for new molecules. There was a inquiry into hosting other kinds of optical data (e.g. cloud species). I said that no for now...
+										</li>
+									</ul>
+								
+							</section>
+
+							<section class="post">
+								<header class="major">
+									<span class="date">June 23, 2019</span>
+									<h2 id="codedev061519">Data Code Dev</h2>
+								</header>
+								<h3>Done:</h3>
+								<ol>
+									<li>Built initial SQL database</li>
+									<li>Code for appending HITRAN data</li>
+									<li>Code for appending ExoMol data</li>
+									<li>Bulk insert into database to improve permormace</li>
+									<li>Auto import data using HAPI and Beautiful Soup for ExoMol</li>
+								</ol>
+								<h3>Up Next:</h3>
+								<ol>
+									<li>Optimize code</li>
+									<li>Turn scripts into code package</li>
+								</ol>
+							</section>
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<section>
+						</section>
+					</footer>
+
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>MAESTRO</li></li></ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="Scripts/jquery.min.js"></script>
+			<script src="Scripts/jquery.scrollex.min.js"></script>
+			<script src="Scripts/jquery.scrolly.min.js"></script>
+			<script src="Scripts/browser.min.js"></script>
+			<script src="Scripts/breakpoints.min.js"></script>
+			<script src="Scripts/util.js"></script>
+			<script src="Scripts/main.js"></script>
+
+	</body>
+</html>
