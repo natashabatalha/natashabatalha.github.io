@@ -10,6 +10,59 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="Stylesheets/main.css" />
+
+		  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+		  <script type="text/javascript">
+		    google.charts.load('current', {'packages':['gantt']});
+		    google.charts.setOnLoadCallback(drawChart);
+
+		    function daysToMilliseconds(days) {
+		      return days * 24 * 60 * 60 * 1000;
+		    }
+
+		    function monthsToMilliseconds(months) {
+		      return months * 30 * 24 * 60 * 60 * 1000;
+		    }
+
+		    function drawChart() {
+
+		      var data = new google.visualization.DataTable();
+		      data.addColumn('string', 'Task ID'); //1
+		      data.addColumn('string', 'Task Name');//2
+		      data.addColumn('string', 'Resource');//3
+		      data.addColumn('date', 'Start Date');//4
+		      data.addColumn('date', 'End Date');//5
+		      data.addColumn('number', 'Duration');//6
+		      data.addColumn('number', 'Percent Complete');//7
+		      data.addColumn('string', 'Dependencies');//8
+
+		      data.addRows([
+		        ['LineListAgg','Line List Aggregation','database', new Date(2019, 5, 1), new Date(2019, 8, 31), null,  30,  null],
+		        ['LLDatabase','Line List Database Dev','database', new Date(2019, 6, 1), new Date(2019, 12, 31), null,  30,  null],
+		        ['VizLLDb','Line List Viz Dev','viz', new Date(2020, 1, 1), new Date(2020, 3, 31), null,  0,  'LineListAgg,LLDatabase'],
+		        ['BetaR1','#1 Beta Release','release', new Date(2020, 4, 1), new Date(2020, 5, 1), null,  0,  'LineListAgg,LLDatabase,VizLLDb'],
+		        ['BestPractice','Develop Best Practices',null, new Date(2019, 8, 1), new Date(2019, 12, 31), null,  0,  null],
+		        ['OpaCodeDev','Opacity Code Dev','codedev', new Date(2019, 9, 1), new Date(2020, 8, 1), null,  0,  null],
+		        ['OpaDatabse','Opacity Database','database', new Date(2020, 5, 2), new Date(2021, 10, 1), null,  0,  'OpaCodeDev,BestPractice,LLDatabase'],
+		        ['BetaR2','#2 Beta Release','release', new Date(2021, 5, 2), new Date(2021, 6, 1), null,  0,  'OpaCodeDev,BestPractice,OpaDatabse'],
+		        ['OpaVizDev','Opacity Viz Dev','viz', new Date(2021, 2, 2), new Date(2021, 10, 1), null,  0,  'VizLLDb,OpaDatabse'],
+		        ['Manipulate','Manipuation Dev','codedev', new Date(2021, 4, 2), new Date(2021, 12, 1), null,  0,  'OpaDatabse'],
+		        ['Testing','Testing Phase',null, new Date(2021, 10, 2), new Date(2022, 4, 10), null,  0,  'OpaDatabse,Manipulate,OpaVizDev'],
+		        ['FinalR','Final Release','release', new Date(2022, 4, 1), new Date(2022, 5, 1), null,  0,  'Testing']
+		      ]);
+
+		      var options = {
+		        height: 700
+		      };
+
+		      var chart = new google.visualization.Gantt(document.getElementById('chart_div'));
+
+		      chart.draw(data, options);
+		    }
+		  </script>
+
+
+
 	</head>
 	<body class="is-preload">
 
@@ -40,9 +93,18 @@
 						<!-- Post -->
 							<section class="post">
 								<header class="major">
-									<h2>Timeline Coming Soon</h2>
+									<h2>Timeline</h2>
 								</header>
+
+
+								<body>
+							  <div id="chart_div"></div>
+							</body>
+
+
 							</section>
+
+
 					</div>
 
 				<!-- Footer -->
@@ -66,6 +128,10 @@
 			<script src="Scripts/breakpoints.min.js"></script>
 			<script src="Scripts/util.js"></script>
 			<script src="Scripts/main.js"></script>
+
+
+
+
 
 	</body>
 </html>
