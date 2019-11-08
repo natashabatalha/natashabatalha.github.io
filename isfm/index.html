@@ -1,0 +1,128 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by Pixelarity
+	pixelarity.com | hello@pixelarity.com
+	License: pixelarity.com/license
+-->
+<html>
+	<head>
+		<title>Ames ISFM | Timeline</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="Stylesheets/main.css" />
+
+		  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+		  <script type="text/javascript">
+		    google.charts.load('current', {'packages':['gantt']});
+		    google.charts.setOnLoadCallback(drawChart);
+
+		    function daysToMilliseconds(days) {
+		      return days * 24 * 60 * 60 * 1000;
+		    }
+
+		    function monthsToMilliseconds(months) {
+		      return months * 30 * 24 * 60 * 60 * 1000;
+		    }
+
+		    function drawChart() {
+
+		      var data = new google.visualization.DataTable();
+		      data.addColumn('string', 'Task ID'); //1
+		      data.addColumn('string', 'Task Name');//2
+		      data.addColumn('string', 'Resource');//3
+		      data.addColumn('date', 'Start Date');//4
+		      data.addColumn('date', 'End Date');//5
+		      data.addColumn('number', 'Duration');//6
+		      data.addColumn('number', 'Percent Complete');//7
+		      data.addColumn('string', 'Dependencies');//8
+
+		      data.addRows([
+[	'pt'	,	'PT Profile Parameterization'	,	'codedev'	,	new Date(2021, 1, 1)	,	new Date(2021, 2, 1)	,	null	,	0	,	null	],
+[	'chemeq'	,	'Chemical Eq.'	,	'codedev'	,	new Date(2021, 2, 1)	,	new Date(2021, 3, 1)	,	null	,	0	,	null	],
+[	'thermal'	,	'Thermal Emission'	,	'codedev'	,	new Date(2021, 7, 1)	,	new Date(2022, 5, 2)	,	null	,	0	,	null	],
+[	'retrieve'	,	'Spectral Retrievals'	,	'codedev'	,	new Date(2021, 5, 2)	,	new Date(2022, 1, 1)	,	null	,	0	,	'pt,chemeq'	],
+[	'beta1'	,	'Beta Release 1'	,	'beta'	,	new Date(2022, 5, 3)	,	new Date(2022, 6, 2)	,	null	,	0	,	'pt,chemeq,thermal,retrieve'	],
+[	'paper1'	,	'Paper: Retrievals for Directly Imaged Planets'	,	'publish'	,	new Date(2022, 1, 2)	,	new Date(2022, 6, 31)	,	null	,	0	,	'pt,chemeq,retrieve'	],
+[	'paper2'	,	'Paper: Retrieval for Self-Luminous and BDs'	,	'publish'	,	new Date(2022, 7, 1)	,	new Date(2023, 3, 1)	,	null	,	0	,	'pt,chemeq,thermal,retrieve'	],
+[	'release1'	,	'Official Release'	,	'release'	,	new Date(2023, 5, 2)	,	new Date(2023, 3, 2)	,	null	,	0	,	'pt,chemeq,thermal'	],
+[	'threed'	,	'3D Calculations'	,	'codedev'	,	new Date(2022, 5, 2)	,	new Date(2022, 12, 1)	,	null	,	0	,	'chemeq,thermal'	],
+[	'beta2'	,	'Beta Release 2'	,	'beta'	,	new Date(2022, 12, 2)	,	new Date(2022, 12, 31)	,	null	,	0	,	'threed'	],
+[	'paper3'	,	'Paper: Retrieval for Self-Luminous and BDs'	,	'publish'	,	new Date(2022, 12, 2)	,	new Date(2023, 5, 1)	,	null	,	0	,	'threed'	],
+[	'release2'	,	'Official Release'	,	'release'	,	new Date(2023, 5, 2)	,	new Date(2023, 6, 1)	,	null	,	0	,	'threed'	]		      ]);
+
+		      var options = {
+		        height: 700
+		      };
+
+		      var chart = new google.visualization.Gantt(document.getElementById('spec_div'));
+
+		      chart.draw(data, options);
+		    }
+		  </script>
+
+
+
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">Ames ISFM</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li class="active"><a href="index.html">Timeline</a></li>
+							<li><a href="stats.html">Statistics</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<h2>Timelines</h2>
+								</header>
+
+
+							<body>
+								<h3>Spectroscopy</h3>
+								<h4>Team Lead: Batalha</h4>
+							  	<div id="spec_div"></div>
+							</body>
+
+
+							</section>
+
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<section>
+						</section>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="Scripts/jquery.min.js"></script>
+			<script src="Scripts/jquery.scrollex.min.js"></script>
+			<script src="Scripts/jquery.scrolly.min.js"></script>
+			<script src="Scripts/browser.min.js"></script>
+			<script src="Scripts/breakpoints.min.js"></script>
+			<script src="Scripts/util.js"></script>
+			<script src="Scripts/main.js"></script>
+
+
+
+
+
+	</body>
+</html>
