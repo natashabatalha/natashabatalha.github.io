@@ -111,6 +111,57 @@
 		    }
 		  </script>
 
+<!-- PHOTOCHEM-->
+		<script type="text/javascript">
+		    google.charts.load('current', {'packages':['gantt']});
+		    google.charts.setOnLoadCallback(drawChartPhoto);
+
+		    function daysToMilliseconds(days) {
+		      return days * 24 * 60 * 60 * 1000;
+		    }
+
+		    function monthsToMilliseconds(months) {
+		      return months * 30 * 24 * 60 * 60 * 1000;
+		    }
+
+		    function drawChartPhoto() {
+
+		      var data_phot = new google.visualization.DataTable();
+		      data_phot.addColumn('string', 'Task ID'); //1
+		      data_phot.addColumn('string', 'Task Name');//2
+		      data_phot.addColumn('string', 'Resource');//3
+		      data_phot.addColumn('date', 'Start Date');//4
+		      data_phot.addColumn('date', 'End Date');//5
+		      data_phot.addColumn('number', 'Duration');//6
+		      data_phot.addColumn('number', 'Percent Complete');//7
+		      data_phot.addColumn('string', 'Dependencies');//8
+
+		      data_phot.addRows([
+[	'integrate','Integration of GSFC,Zahnle,Harman Tools','codedev',new Date(2021, 1, 1),new Date(2021, 4, 1),null,0,null],
+[	'convert'	,'Convert Tools to Py'	,'codedev',new Date(2021, 4, 2),new Date(2022, 5, 1),null,0,'integrate'],
+[	'rxnrate'	,'Create Reaction Rate Db','codedev',new Date(2022, 5, 2),new Date(2022, 10, 1)	,null	,	0	,null],
+[	'network'	,'Methodology for Chemical Network'	,	'codedev'	,	new Date(2022, 10, 2),new Date(2023, 1, 1),null,0,null],
+[	'temp'	,'Create Templates for Benchmarking'	,	'codedev'	,	new Date(2023, 1, 2),new Date(2023, 3, 1),null,0,'convert,rxnrate,network'],
+[	'bench1'	,'Benchmarking: Temperate Terrestrial'	,	'codedev'	,	new Date(2023, 3, 2),new Date(2023, 6, 1),null,0,'temp'],
+[	'bench2'	,'Benchmarking: Warm Neptunes'	,	'codedev'	,	new Date(2023, 6, 2),new Date(2023, 9, 1),null,0,'temp'],
+[	'bench3'	,'Benchmarking: Hot Jupiters'	,	'codedev'	,	new Date(2023, 9, 2),new Date(2024, 1, 1),null,0,'temp'],
+[	'docs','Documentation'	,'docs',new Date(2024, 1, 2),new Date(2024, 3, 1),null,0,	'bench1,bench2,bench3'	],
+[	'tutorial','Tutorials'	,'docs',new Date(2024, 3, 2),new Date(2024, 5, 1),null,0	,	'bench1,bench2,bench3'	],
+[	'beta1'	,'Beta Release 1','beta',new Date(2024, 5, 2),new Date(2024, 7, 1),null,	0	,	'tutorial,docs'],
+[	'codeop'	,'Code optimization & JIT compiling'	,'codedev',new Date(2024, 7, 2),new Date(2024, 10, 1),	null,0,null],
+[	'release1'	,'Official Release'	,'release',new Date(2024, 10, 2)	,new Date(2024, 12, 31)	,null,0	,'beta1,codeop']	
+]);
+
+		      var options = {
+		        height: 700
+		      };
+
+		      var chart_phot = new google.visualization.Gantt(document.getElementById('phot_div'));
+
+		      chart_phot.draw(data_phot, options);
+		    }
+		  </script>
+
 	</head>
 	<body class="is-preload">
 
@@ -137,24 +188,30 @@
 							<section class="post">
 								<header class="major">
 									<h2>Timelines</h2>
+									<a href="#spec" class="button primary small">Spectroscopy</a>
+									<a href="#atmo" class="button primary small">Atmosphere</a>
+									<a href="#photo" class="button primary small">Photochemistry</a>
+									<a href="#cloud" class="button primary small">Clouds</a>
+									<a href="#opa" class="button primary small">Opacity</a>
+									<a href="#pub" class="button info small">Publications</a>
 								</header>
 
 
 							<body>
 								<h2>Development Timeline</h2>
-								<h3>--Spectroscopy--</h3>
+								<h3 id='spec'>--Spectroscopy--</h3>
 								<h4>Team Lead: Batalha</h4>
 							  	<div id="spec_div"></div>
-							  	<h3>--Atmosphere--</h3>
+							  	<h3 id='atmo'>--Atmosphere--</h3>
 							  	<h4>Team Lead: Marley</h4>
 							  	<div id="atmo_div"></div>
-							  	<h3>Photochemistry</h3>
+							  	<h3 id='photo'>Photochemistry</h3>
 							  	<h4>Team Lead: Harman</h4>
-							  	<div id=""></div>
-							  	<h3>Clouds</h3>
+							  	<div id="phot_div"></div>
+							  	<h3 id='cloud'>Clouds</h3>
 							  	<h4>Team Lead: Batalha</h4>
 							  	<div id=""></div>
-							  	<h3>Opacity</h3>
+							  	<h3 id='opa'>Opacity</h3>
 							  	<h4>Team Lead: Batalha</h4>
 							  	<div id=""></div>
 							</body>
