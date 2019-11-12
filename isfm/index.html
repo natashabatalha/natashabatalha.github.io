@@ -12,9 +12,11 @@
 		<link rel="stylesheet" href="Stylesheets/main.css" />
 
 		  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-		  <script type="text/javascript">
+
+<!-- SPECTROSCOPY-->
+		<script type="text/javascript">
 		    google.charts.load('current', {'packages':['gantt']});
-		    google.charts.setOnLoadCallback(drawChart);
+		    google.charts.setOnLoadCallback(drawChartSpec);
 
 		    function daysToMilliseconds(days) {
 		      return days * 24 * 60 * 60 * 1000;
@@ -24,43 +26,90 @@
 		      return months * 30 * 24 * 60 * 60 * 1000;
 		    }
 
-		    function drawChart() {
+		    function drawChartSpec() {
 
-		      var data = new google.visualization.DataTable();
-		      data.addColumn('string', 'Task ID'); //1
-		      data.addColumn('string', 'Task Name');//2
-		      data.addColumn('string', 'Resource');//3
-		      data.addColumn('date', 'Start Date');//4
-		      data.addColumn('date', 'End Date');//5
-		      data.addColumn('number', 'Duration');//6
-		      data.addColumn('number', 'Percent Complete');//7
-		      data.addColumn('string', 'Dependencies');//8
+		      var data_spec = new google.visualization.DataTable();
+		      data_spec.addColumn('string', 'Task ID'); //1
+		      data_spec.addColumn('string', 'Task Name');//2
+		      data_spec.addColumn('string', 'Resource');//3
+		      data_spec.addColumn('date', 'Start Date');//4
+		      data_spec.addColumn('date', 'End Date');//5
+		      data_spec.addColumn('number', 'Duration');//6
+		      data_spec.addColumn('number', 'Percent Complete');//7
+		      data_spec.addColumn('string', 'Dependencies');//8
 
-		      data.addRows([
+		      data_spec.addRows([
 [	'pt'	,	'PT Profile Parameterization'	,	'codedev'	,	new Date(2021, 1, 1)	,	new Date(2021, 2, 1)	,	null	,	0	,	null	],
-[	'chemeq'	,	'Chemical Eq.'	,	'codedev'	,	new Date(2021, 2, 1)	,	new Date(2021, 3, 1)	,	null	,	0	,	null	],
+[	'chemeq'	,	'Chemical Equilibrium'	,	'codedev'	,	new Date(2021, 2, 1)	,	new Date(2021, 3, 1)	,	null	,	0	,	null	],
 [	'thermal'	,	'Thermal Emission'	,	'codedev'	,	new Date(2021, 7, 1)	,	new Date(2022, 5, 2)	,	null	,	0	,	null	],
 [	'retrieve'	,	'Spectral Retrievals'	,	'codedev'	,	new Date(2021, 5, 2)	,	new Date(2022, 1, 1)	,	null	,	0	,	'pt,chemeq'	],
-[	'beta1'	,	'Beta Release 1'	,	'beta'	,	new Date(2022, 5, 3)	,	new Date(2022, 6, 2)	,	null	,	0	,	'pt,chemeq,thermal,retrieve'	],
-[	'paper1'	,	'Paper: Retrievals for Directly Imaged Planets'	,	'publish'	,	new Date(2022, 1, 2)	,	new Date(2022, 6, 31)	,	null	,	0	,	'pt,chemeq,retrieve'	],
-[	'paper2'	,	'Paper: Retrieval for Self-Luminous and BDs'	,	'publish'	,	new Date(2022, 7, 1)	,	new Date(2023, 3, 1)	,	null	,	0	,	'pt,chemeq,thermal,retrieve'	],
-[	'release1'	,	'Official Release'	,	'release'	,	new Date(2023, 5, 2)	,	new Date(2023, 3, 2)	,	null	,	0	,	'pt,chemeq,thermal'	],
-[	'threed'	,	'3D Calculations'	,	'codedev'	,	new Date(2022, 5, 2)	,	new Date(2022, 12, 1)	,	null	,	0	,	'chemeq,thermal'	],
-[	'beta2'	,	'Beta Release 2'	,	'beta'	,	new Date(2022, 12, 2)	,	new Date(2022, 12, 31)	,	null	,	0	,	'threed'	],
-[	'paper3'	,	'Paper: Retrieval for Self-Luminous and BDs'	,	'publish'	,	new Date(2022, 12, 2)	,	new Date(2023, 5, 1)	,	null	,	0	,	'threed'	],
-[	'release2'	,	'Official Release'	,	'release'	,	new Date(2023, 5, 2)	,	new Date(2023, 6, 1)	,	null	,	0	,	'threed'	]		      ]);
+[	'beta1'	,	'Beta Release 1'	,	'beta'	,	new Date(2022, 5, 3)	,	new Date(2023, 1, 1)	,	null	,	0	,	'pt,chemeq,thermal,retrieve'	],
+[	'release1'	,	'Official Release'	,	'release'	,	new Date(2023, 1, 2)	,	new Date(2023, 3, 2)	,	null	,	0	,	'pt,chemeq,thermal'	],
+[	'threed'	,	'Enable 3D Radiative Transfer'	,	'codedev'	,	new Date(2022, 5, 2)	,	new Date(2023, 1, 1)	,	null	,	0	,	'chemeq,thermal'	],
+[	'beta2'	,	'Beta Release 2'	,	'beta'	,	new Date(2023, 1, 2)	,	new Date(2023, 9, 1)	,	null	,	0	,	'threed'	],
+[	'release2'	,	'Official Release'	,	'release'	,	new Date(2023, 9, 2)	,	new Date(2023, 11, 2)	,	null	,	0	,	'threed'	]		      ]);
+
+		      var options = {
+		        height: 500
+		      };
+
+		      var chart_spec = new google.visualization.Gantt(document.getElementById('spec_div'));
+
+		      chart_spec.draw(data_spec, options);
+		    }
+		  </script>
+
+<!-- ATMOSPHERE-->
+		<script type="text/javascript">
+		    google.charts.load('current', {'packages':['gantt']});
+		    google.charts.setOnLoadCallback(drawChartAtmo);
+
+		    function daysToMilliseconds(days) {
+		      return days * 24 * 60 * 60 * 1000;
+		    }
+
+		    function monthsToMilliseconds(months) {
+		      return months * 30 * 24 * 60 * 60 * 1000;
+		    }
+
+		    function drawChartAtmo() {
+
+		      var data_atmo = new google.visualization.DataTable();
+		      data_atmo.addColumn('string', 'Task ID'); //1
+		      data_atmo.addColumn('string', 'Task Name');//2
+		      data_atmo.addColumn('string', 'Resource');//3
+		      data_atmo.addColumn('date', 'Start Date');//4
+		      data_atmo.addColumn('date', 'End Date');//5
+		      data_atmo.addColumn('number', 'Duration');//6
+		      data_atmo.addColumn('number', 'Percent Complete');//7
+		      data_atmo.addColumn('string', 'Dependencies');//8
+
+		      data_atmo.addRows([
+[	'converge'	,'Transparent Convergence Criteria'	,'codedev',new Date(2021, 1, 1),new Date(2021, 3, 1),null,0,null],
+[	'cv','Convective Zone Logic','codedev',new Date(2021, 3, 2)	,new Date(2021, 5, 1)	,	null	,	0	,	null	],
+[	'f2pycon','F2Py: Convergence Routine','codedev',new Date(2021, 5, 2),new Date(2021, 7, 1),	null	,	0	,	null	],
+[	'f2pycv','F2Py: Convective Zone Routine','codedev',new Date(2021, 7, 2)	,new Date(2021, 10, 1),	null	,	0	,	null	],
+[	'f2py','F2Py: Correlated-K Subroutine','codedev',new Date(2021, 10, 2),	new Date(2022, 1, 1)	,	null	,	0	,	null	],
+[	'f2pymmr','F2Py: Mixing Ratio Tables'	,'codedev',new Date(2022, 1, 2),new Date(2022, 3, 1),null,	0	,	null	],
+[	'f2pyall','F2Py: Small Subroutines','codedev',new Date(2022, 3, 2),new Date(2022, 5, 1),null,	0,null],
+[	'cloud'	,'Integration with New Cloud Code','codedev',new Date(2022, 5, 2),new Date(2022, 10, 1)	,null	,	0	,	'converge,cv,f2pycon,f2pycv,f2py,f2pymmr,f2pyall'],
+[	'bench'	,	'Benchmarking'	,	'codedev'	,	new Date(2022, 10, 2)	,	new Date(2023, 1, 1)	,	null	,	0	,	'cloud'],
+[	'docs','Documentation'	,'documents',new Date(2023, 1, 2),new Date(2023, 3, 1),null,0,	'cloud'	],
+[	'tutorial','Tutorials'	,'documents',new Date(2023, 3, 2),new Date(2023, 5, 1),null,0	,	'docs'	],
+[	'beta1'	,'Beta Release 1','beta',new Date(2023, 5, 2),new Date(2023, 7, 1),null,	0	,	'tutorial,docs,cloud'],
+[	'codeop'	,'Code optimization & JIT compiling'	,'codedev',new Date(2023, 7, 2),new Date(2023, 10, 1),	null,0,null],
+[	'release1'	,'Official Release'	,'release',new Date(2023, 10, 2)	,new Date(2023, 12, 31)	,null,0	,'beta1,codeop']	
+]);
 
 		      var options = {
 		        height: 700
 		      };
 
-		      var chart = new google.visualization.Gantt(document.getElementById('spec_div'));
+		      var chart_atmo = new google.visualization.Gantt(document.getElementById('atmo_div'));
 
-		      chart.draw(data, options);
+		      chart_atmo.draw(data_atmo, options);
 		    }
 		  </script>
-
-
 
 	</head>
 	<body class="is-preload">
@@ -92,9 +141,22 @@
 
 
 							<body>
-								<h3>Spectroscopy</h3>
+								<h2>Development Timeline</h2>
+								<h3>--Spectroscopy--</h3>
 								<h4>Team Lead: Batalha</h4>
 							  	<div id="spec_div"></div>
+							  	<h3>--Atmosphere--</h3>
+							  	<h4>Team Lead: Marley</h4>
+							  	<div id="atmo_div"></div>
+							  	<h3>Photochemistry</h3>
+							  	<h4>Team Lead: Harman</h4>
+							  	<div id=""></div>
+							  	<h3>Clouds</h3>
+							  	<h4>Team Lead: Batalha</h4>
+							  	<div id=""></div>
+							  	<h3>Opacity</h3>
+							  	<h4>Team Lead: Batalha</h4>
+							  	<div id=""></div>
 							</body>
 
 
