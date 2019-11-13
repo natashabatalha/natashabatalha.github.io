@@ -1,0 +1,176 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by Pixelarity
+	pixelarity.com | hello@pixelarity.com
+	License: pixelarity.com/license
+-->
+<html>
+	<head>
+		<title>Ames ISFM | Timeline</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="Stylesheets/main.css" />
+
+ 		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+   <script type="text/javascript">
+    google.charts.load("current", {packages:["corechart"]});
+    google.charts.setOnLoadCallback(drawChart_Early);
+    function drawChart_Early() {
+      var data_early = google.visualization.arrayToDataTable([
+        ['Career Level','Early Career', 'NPP', 'Other PostDoc','Grad Student','Undergrad Intern' ,{ role: 'annotation' } ],
+        ['2021', 2, 1, 1, 1, 1, ''],
+        ['2022', 0, 0, 0, 0, 0, ''],
+        ['2023', 0, 0, 0, 0, 0, ''],
+        ['2024', 0, 0, 0, 0, 0, ''],
+        ['2025', 0, 0, 0, 0, 0, '']
+      ]);
+
+      var options_early = {
+        width: 500,
+        height: 400,
+        legend: { position: 'top', maxLines: 5 },
+        bar: { groupWidth: '75%' },
+        isStacked: true
+      };
+      var chart_early = new google.visualization.BarChart(document.getElementById("barchart_values"));
+      chart_early.draw(data_early, options_early);
+  }
+
+      google.charts.load('current', {'packages':['line']});
+      google.charts.setOnLoadCallback(drawGithub);
+
+    function drawGithub() {
+
+      var data_git = new google.visualization.DataTable();
+      data_git.addColumn('number', 'Week');
+      data_git.addColumn('number', 'Spectroscopy');
+      data_git.addColumn('number', 'Atmosphere');
+      data_git.addColumn('number', 'Cloud');
+      data_git.addColumn('number', 'Opacity');
+      data_git.addColumn('number', 'Photochemistry');
+      data_git.addRows([
+        [1,  25,0,0,0,0],
+        [2,  50,0,0,0,0]
+      ]);
+
+      var options_git = {
+        chart: {
+          title: 'Github Clones or Downloads',
+          subtitle: 'Updated bi-weekly'
+        },
+        width: 500,
+        height: 400
+      };
+
+      var chart_git = new google.charts.Line(document.getElementById('linechart_material'));
+
+      chart_git.draw(data_git, google.charts.Line.convertOptions(options_git));
+    }
+
+
+    google.charts.load("current", {packages:["corechart"]});
+    google.charts.setOnLoadCallback(drawChart_Proposal);
+    function drawChart_Proposal() {
+      var data_proposal = google.visualization.arrayToDataTable([
+        ['Proposal','XRP','ATP','HST','JWST', 'TESS' ,{ role: 'annotation' } ],
+        ['2021 Submitted Proposals', 1,2,3,1,3, ''],
+        ['2021 Served Panels', 1,1,1,1,1, ''],
+        ['2022 Submitted Proposals', 0,0,0,0,0, ''],
+        ['2022 Served Panels', 0,0,0,0,0, ''],
+        ['2023 Submitted Proposals', 0,0,0,0,0, ''],
+        ['2023 Served Panels', 0,0,0,0,0, ''],
+        ['2024 Submitted Panels', 0,0,0,0,0,''],
+        ['2024 Served Proposals', 0,0,0,0,0, ''],
+        ['2025 Submitted Panels', 0,0,0,0,0, ''],
+        ['2025 Served Proposals', 0,0,0,0,0, '']
+      ]);
+
+      var options_proposal = {
+        width: 500,
+        height: 700,
+        legend: { position: 'top', maxLines: 5 },
+        bar: { groupWidth: '75%' },
+        isStacked: true
+      };
+      var chart_proposal = new google.visualization.BarChart(document.getElementById("proposal"));
+      chart_proposal.draw(data_proposal, options_proposal);
+  }
+
+
+
+  </script>		
+	</head>
+
+
+
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">Ames ISFM</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="index.html">Timeline</a></li>
+							<li class="active"><a href="statistics.html">Statistics</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<h2>Statistics</h2>
+								</header>
+
+
+							<body>
+								<h2>Early Career</h2>
+								<p>Will be updated yearly.</p>
+							  	<div id="barchart_values"></div>
+							  	<p></p>
+							  	<h2>Github Statistics</h2>
+							  	<div id="linechart_material"></div>
+							  	<p></p>
+							  	<h2>Proposals & Review Panels</h2>
+							  	<p>Will be udpated yearly (2021 is for example only).</p>
+							  	<div id="proposal"></div>
+							  	<p></p>
+							</body>
+
+
+							</section>
+
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<section>
+						</section>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="Scripts/jquery.min.js"></script>
+			<script src="Scripts/jquery.scrollex.min.js"></script>
+			<script src="Scripts/jquery.scrolly.min.js"></script>
+			<script src="Scripts/browser.min.js"></script>
+			<script src="Scripts/breakpoints.min.js"></script>
+			<script src="Scripts/util.js"></script>
+			<script src="Scripts/main.js"></script>
+
+
+
+
+
+	</body>
+</html>
