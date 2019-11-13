@@ -208,7 +208,50 @@
 		      chart_cld.draw(data_cld, options);
 		    }
 		  </script>
+
+<script type="text/javascript">
+  google.charts.load("current", {packages:["timeline"]});
+  google.charts.setOnLoadCallback(drawChart);
+  function drawChart() {
+    var container = document.getElementById('pub_div');
+    var chart = new google.visualization.Timeline(container);
+    var dataTable = new google.visualization.DataTable();
+    dataTable.addColumn({ type: 'string', id: 'Term' });
+    dataTable.addColumn({ type: 'string', id: 'Name' });
+    dataTable.addColumn({ type: 'date', id: 'Start' });
+    dataTable.addColumn({ type: 'date', id: 'End' });
+    dataTable.addRows([
+      [ 'Schedule', 'JWST Launch',  new Date(2021, 3, 1),  new Date(2021, 6, 1) ],
+      [ 'Schedule', 'JWST ERS & GTO Data Analysis',  new Date(2022, 6, 1),  new Date(2022, 12, 1) ],
+      [ 'PASP', 'Modeling Clouds with PyEddy',  new Date(2021, 1, 1),  new Date(2022, 1, 1) ],
+      [ 'PASP', 'Open Source Atmosphere Model',  new Date(2023, 1, 1),  new Date(2024, 1, 1) ],
+      [ 'PASP', 'Open Source Photochemical Model',  new Date(2024, 1, 1),  new Date(2025, 1, 1) ],
+      [ 'PASP', 'Retrival Methods with PICASO',  new Date(2022, 1, 2),  new Date(2023, 1, 1) ],
+      [ 'ApJ/AJ', 'GTO Mid-IR JWST spectra including cloud signatures and disequillibrium chemistry', new Date(2023, 1, 2), new Date(2024, 1, 1) ],
+      [ 'ApJ/AJ', 'GTO 5 transits of TRAPPIST-1e', new Date(2024, 1, 2), new Date(2025, 1, 1) ],
+      [ 'ApJ/AJ', 'GTO Transmission & Emission: In depth look at Hot Jupiter WASP-17b ', new Date(2024, 1, 2), new Date(2025, 1, 1) ],
+      [ 'ApJ/AJ', 'GTO Disequillibrium Chemistry in a Warm Neptune', new Date(2024, 1, 2), new Date(2025, 1, 1) ],
+      [ 'ApJ/AJ', 'GTO coronagraphic spectroscopy of young giant planets',        new Date(2023, 1, 1),  new Date(2024, 1, 1) ],
+      [ 'ApJ/AJ', 'Influence of Cloud Modeling Assumptions on Retrieved Exo Abundances',  new Date(2025, 1, 2),  new Date(2026, 1, 1) ],
+      [ 'ApJ/AJ', 'Influence of UV opacity sources in Exo Atmospheres',  new Date(2025, 1, 2),  new Date(2026, 1, 1) ],
+      [ 'ApJ/AJ', 'Using Machine Learning to Auto Construct Chemical Networks',  new Date(2025, 1, 2),  new Date(2026, 1, 1) ],
+      [ 'ApJ/AJ', 'Beyond Assumptions of Chemical Equilibrium',  new Date(2025, 1, 2),  new Date(2026, 1, 1) ]
+      ]);
+
+    var options = {
+      height: 700,
+      timeline: { rowLabelStyle: {fontName: 'Helvetica', fontSize: 16,},
+                     barLabelStyle: { fontName: 'Helvetica', fontSize: 14 } }
+    };
+
+    chart.draw(dataTable, options);
+  }
+</script>
+
 	</head>
+
+
+
 	<body class="is-preload">
 
 		<!-- Wrapper -->
@@ -259,7 +302,13 @@
 							  	<div id="cld_div"></div>
 							  	<h3 id='opa'>Opacity</h3>
 							  	<h4>Team Lead: Batalha</h4>
+							  	<p>
+							  	<a href="https://natashabatalha.github.io/maestro/timeline.html" class="button success small">Timeline for Opacity Proposal, PI:Lewis)</a>
+							  </p>
 							  	<div id=""></div>
+							  	<h2 id="pub">Publication Timeline</h2>
+							  	<p>We reserve the right to update as needed since we cannot predict the wealth of discoveries JWST will enable.</p>
+							  	<div id="pub_div"></div>
 							</body>
 
 
