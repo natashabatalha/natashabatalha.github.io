@@ -13,6 +13,60 @@
 
 		  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
+
+<!--OVERALL TIMELINE-->
+		<script type="text/javascript">
+		    google.charts.load('current', {'packages':['gantt']});
+		    google.charts.setOnLoadCallback(drawChartAll);
+
+		    function daysToMilliseconds(days) {
+		      return days * 24 * 60 * 60 * 1000;
+		    }
+
+		    function monthsToMilliseconds(months) {
+		      return months * 30 * 24 * 60 * 60 * 1000;
+		    }
+
+		    function drawChartAll() {
+
+		      var data_all = new google.visualization.DataTable();
+		      data_all.addColumn('string', 'Task ID'); //1
+		      data_all.addColumn('string', 'Task Name');//2
+		      data_all.addColumn('string', 'Resource');//3
+		      data_all.addColumn('date', 'Start Date');//4
+		      data_all.addColumn('date', 'End Date');//5
+		      data_all.addColumn('number', 'Duration');//6
+		      data_all.addColumn('number', 'Percent Complete');//7
+		      data_all.addColumn('string', 'Dependencies');//8
+
+		      data_all.addRows([
+[	'spec_beta1'	,	'Spectroscopy Beta Release 1'	,	'spec'	,	new Date(2022, 5, 3)	,	new Date(2023, 1, 1)	,	null	,	0	,	null	],
+[	'spec_release'	,	'Spectroscopy Release 1'	,	'spec'	,	new Date(2023, 1, 2)	,	new Date(2023, 3, 2)	,	null	,	0	,	'spec_beta1'	],
+[	'spec_beta2'	,	'Spectroscopy Beta Release 2'	,	'spec'	,	new Date(2023, 1, 2)	,	new Date(2023, 9, 1)	,	null	,	0	,	'spec_beta1'	],
+[	'spec_release'	,	'Spectroscopy Release 2'	,	'spec'	,	new Date(2023, 9, 2)	,	new Date(2023, 11, 2)		,	null	,	0	,	'spec_beta2'	],
+[	'atmo_beta1'	,	'Atmosphere Beta Release'	,	'atmo'	,	new Date(2023, 5, 2),new Date(2023, 7, 1)	,	null	,	0	,	null	],
+[	'atmo_release1'	,	'Atmosphere Release'	,	'atmo'	,	new Date(2023, 10, 2)	,new Date(2023, 12, 31)	,	null	,	0	,	'atmo_beta1'	],
+[	'photo_beta1'	,	'Photochemistry Beta Release'	,	'photo'	,	new Date(2024, 5, 2),new Date(2024, 7, 1)	,	null	,	0	,	null	],
+[	'photo_release1'	,	'Photochemistry Beta Release'	,	'photo'	,	new Date(2024, 10, 2)	,new Date(2024, 12, 31)		,	null	,	0	,	'photo_beta1'	],
+[	'cld_beta1'	,	'Cloud Beta Release'	,	'cloud'	,	new Date(2021, 8, 2),new Date(2021, 9, 1)	,	null	,	0	,	null],
+[	'cld_release1'	,	'Cloud Beta Release'	,	'cloud'	,	new Date(2021, 11, 2)	,new Date(2021, 12, 1)		,	null	,	0	,	'cld_beta1'		],    
+[	'opa_beta1'	,	'Opacity Beta Release'	,	'opa'	,	new Date(2021, 6, 1),new Date(2021, 9, 1)	,	null	,	0	,	null],
+[	'opa_release1'	,	'Opacity Final Release'	,	'opa'	,	new Date(2022, 6, 1)	,new Date(2022, 9, 1)		,	null	,	0	,	'opa_beta1'		]    
+
+]);
+
+		      var options = {
+		        height: 600
+		      };
+
+		      var chart_all = new google.visualization.Gantt(document.getElementById('all_div'));
+
+		      chart_all.draw(data_all, options);
+		    }
+		  </script>
+
+
+
 <!-- SPECTROSCOPY-->
 		<script type="text/javascript">
 		    google.charts.load('current', {'packages':['gantt']});
@@ -58,6 +112,9 @@
 		      chart_spec.draw(data_spec, options);
 		    }
 		  </script>
+
+
+
 
 <!-- ATMOSPHERE-->
 		<script type="text/javascript">
@@ -288,6 +345,8 @@
 
 
 							<body>
+								<h2>Overall Timeline</h2>
+								<div id="all_div"></div>
 								<h2>Development Timeline</h2>
 								<h3 id='spec'>--Spectroscopy--</h3>
 								<h4>Team Lead: Batalha</h4>
