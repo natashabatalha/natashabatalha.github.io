@@ -40,18 +40,17 @@
 		      data_all.addColumn('string', 'Dependencies');//8
 
 		      data_all.addRows([
-[	'spec_beta1'	,	'Spectroscopy Beta Release 1'	,	'spec'	,	new Date(2022, 5, 3)	,	new Date(2023, 1, 1)	,	null	,	0	,	null	],
-[	'spec_release'	,	'Spectroscopy Release 1'	,	'spec'	,	new Date(2023, 1, 2)	,	new Date(2023, 3, 2)	,	null	,	0	,	'spec_beta1'	],
-[	'spec_beta2'	,	'Spectroscopy Beta Release 2'	,	'spec'	,	new Date(2023, 1, 2)	,	new Date(2023, 9, 1)	,	null	,	0	,	'spec_beta1'	],
-[	'spec_release'	,	'Spectroscopy Release 2'	,	'spec'	,	new Date(2023, 9, 2)	,	new Date(2023, 11, 2)		,	null	,	0	,	'spec_beta2'	],
-[	'atmo_beta1'	,	'Atmosphere Beta Release'	,	'atmo'	,	new Date(2023, 5, 2),new Date(2023, 7, 1)	,	null	,	0	,	null	],
+[	'spec_beta1'	,	'Spectroscopy Beta 1'	,	'spec'	,	new Date(2022, 5, 3)	,	new Date(2023, 1, 1)	,	null	,	0	,	null	],
+[	'spec_beta2'	,	'Spectroscopy Beta 2'	,	'spec'	,	new Date(2023, 1, 2)	,	new Date(2023, 9, 1)	,	null	,	0	,	'spec_beta1'	],
+[	'spec_release'	,	'Spectroscopy Release'	,	'spec'	,	new Date(2023, 9, 2)	,	new Date(2023, 11, 2)		,	null	,	0	,	'spec_beta1,spec_beta2'	],
+[	'atmo_beta1'	,	'Atmosphere Beta'	,	'atmo'	,	new Date(2023, 5, 2),new Date(2023, 7, 1)	,	null	,	0	,	null	],
 [	'atmo_release1'	,	'Atmosphere Release'	,	'atmo'	,	new Date(2023, 10, 2)	,new Date(2023, 12, 31)	,	null	,	0	,	'atmo_beta1'	],
-[	'photo_beta1'	,	'Photochemistry Beta Release'	,	'photo'	,	new Date(2024, 5, 2),new Date(2024, 7, 1)	,	null	,	0	,	null	],
-[	'photo_release1'	,	'Photochemistry Beta Release'	,	'photo'	,	new Date(2024, 10, 2)	,new Date(2024, 12, 31)		,	null	,	0	,	'photo_beta1'	],
-[	'cld_beta1'	,	'Cloud Beta Release'	,	'cloud'	,	new Date(2021, 8, 2),new Date(2021, 9, 1)	,	null	,	0	,	null],
-[	'cld_release1'	,	'Cloud Beta Release'	,	'cloud'	,	new Date(2021, 11, 2)	,new Date(2021, 12, 1)		,	null	,	0	,	'cld_beta1'		],    
-[	'opa_beta1'	,	'Opacity Beta Release'	,	'opa'	,	new Date(2021, 6, 1),new Date(2021, 9, 1)	,	null	,	0	,	null],
-[	'opa_release1'	,	'Opacity Final Release'	,	'opa'	,	new Date(2022, 6, 1)	,new Date(2022, 9, 1)		,	null	,	0	,	'opa_beta1'		]    
+[	'photo_beta1'	,	'Photochemistry Beta'	,	'photo'	,	new Date(2024, 5, 2),new Date(2024, 7, 1)	,	null	,	0	,	null	],
+[	'photo_release1'	,	'Photochemistry Release'	,	'photo'	,	new Date(2024, 10, 2)	,new Date(2024, 12, 31)		,	null	,	0	,	'photo_beta1'	],
+[	'cld_beta1'	,	'Cloud Beta'	,	'cloud'	,	new Date(2021, 8, 2),new Date(2021, 9, 1)	,	null	,	0	,	null],
+[	'cld_release1'	,	'Cloud Release'	,	'cloud'	,	new Date(2021, 11, 2)	,new Date(2021, 12, 1)		,	null	,	0	,	'cld_beta1'		],    
+[	'opa_beta1'	,	'Opacity Beta'	,	'opa'	,	new Date(2021, 6, 1),new Date(2021, 9, 1)	,	null	,	0	,	null],
+[	'opa_release1'	,	'Opacity Release'	,	'opa'	,	new Date(2022, 6, 1)	,new Date(2022, 9, 1)		,	null	,	0	,	'opa_beta1'		]    
 
 ]);
 
