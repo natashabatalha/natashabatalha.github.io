@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>MAESTRO | Notes</title>
+		<title>MAESTRO | Code Standars</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="Stylesheets/main.css" />
@@ -163,10 +163,61 @@ git push origin dev
 <p>Many people ask: "How often should I commit??". Choose something that works for you and stick to it. I try and work on smaller, individual tasks and commit when I feel I have finished something. If you try and do too much at once, your commit comments won't make too much sense with what you have actually done. Remember, eventually someone will have to review your commits. If they are hard to parse, it will delay the merge of your work.
 </p>
 <h4>3) Final merge to <code>master</code> </h4>
+<p>
 <code>master</code> is generally a protected branch, so talk to the admin or the team before proceeding. In general, merges to master are easiest done through <a href="https://github.com/">Github Online</a>. Near where the branches are listed, go to "New Pull Request". Write a description of the new dev capability, and request a merge to master. And if all good then, done!!! 
+</p>
 
 <!-- https://nvie.com/posts/a-successful-git-branching-model/ -->
+<h3>An Aside About Conda Enviornment</h3>
+<p>Package control and version control is a pain. To make sure everyone is running on the same enviornment it will be beneficial if we are all work in the same environment. Here are the most pertinent commands you need to know. </p>
+<h4>Create your own environment</h4>
+<p>To create your own environment with a specific name and python package:</p>
+<pre>
+<code>
+conda create --name your_env_name python=3.7 -y
+</code>
+</pre>
+If you have specific environment variables that need to be tied to here: 
+<pre>
+<code>
+conda activate your_env_name
+cd $CONDA_PREFIX
+mkdir -p ./etc/conda/activate.d
+mkdir -p ./etc/conda/deactivate.d
+touch ./etc/conda/activate.d/env_vars.sh
+touch ./etc/conda/deactivate.d/env_vars.sh
+</code>
+</pre>
+Edit <code>./etc/conda/activate.d/env_vars.sh</code> : 
+<pre>
+<code>
+#!/bin/sh
 
+export MY_VAR='path/to/something'
+</code>
+</pre>
+And edit <code>./etc/conda/deactivate.d/env_vars.sh</code> : 
+<pre>
+<code>
+#!/bin/sh
+
+unset MY_VAR
+</code>
+</pre>
+<h4>Export your environment</h4>
+<p> Another great aspect of conda enviornments is that they can be passed to one another. </p>
+<pre>
+<code>
+conda env export > my_environment.yml
+</code>
+</pre>
+<h4>Create enviornment from <code>my_environment.yml</code></h4>
+<p>And if someone passes you an environment file, you can easily replicate it ! </p>
+<pre>
+<code>
+conda env create -f environment.yml
+</code>
+</pre>
 							</section>
 					</div>
 
