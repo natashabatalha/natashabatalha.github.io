@@ -23,21 +23,23 @@
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://natashabatalha.github.io/masses.html</loc>
-      <image:image>
-       <image:loc>https://natashabatalha.github.io/assets/img/portfolio/mass.pdf</image:loc>
-       <image:caption>Masses are important to characterize the atmospheres of exoplanets via transit transmission spectroscopy</image:caption>
-    </image:image>
-  <lastmod>2018-02-26T02:44:51+00:00</lastmod>
+  <loc>https://natashabatalha.github.io/research.html</loc>
+  <lastmod>2023-10-27T00:00:00+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://natashabatalha.github.io/ic.html</loc>
-        <image:image>
-       <image:loc>https://natashabatalha.github.io/assets/img/portfolio/ic1.jpg</image:loc>
-       <image:caption>Information content theory used to identify the best modes to characterize the atmospheres of exoplanets with the James Webb Space Telescope (JWST)</image:caption>
-    </image:image>
-  <lastmod>2018-02-26T02:44:51+00:00</lastmod>
+  <loc>https://natashabatalha.github.io/methodologies.html</loc>
+  <lastmod>2023-10-27T00:00:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://natashabatalha.github.io/observations.html</loc>
+  <lastmod>2023-10-27T00:00:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://natashabatalha.github.io/theory.html</loc>
+  <lastmod>2023-10-27T00:00:00+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
@@ -46,29 +48,6 @@
        <image:loc>https://natashabatalha.github.io/assets/img/portfolio/pandexo.pdf</image:loc>
        <image:caption>PandExo helsp the community plan their observations of exoplanets with James Webb Space Telescope (JWST)</image:caption>
     </image:image>
-  <lastmod>2018-02-26T02:44:51+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://natashabatalha.github.io/marscycle.html</loc>
-    <image:image>
-       <image:loc>https://natashabatalha.github.io/assets/img/portfolio/cycling.jpg</image:loc>
-       <image:caption>Early Mars could have experienced climate cycles 3.8 billion years ago</image:caption>
-    </image:image>
-  <lastmod>2018-02-26T02:44:51+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://natashabatalha.github.io/marsh2.html</loc>
-      <image:image>
-       <image:loc>https://natashabatalha.github.io/assets/img/portfolio/cycling.jpg</image:loc>
-       <image:caption>Early Mars could have been warmed by a thick greenhouse atmosphere made up of carbon diozide and hygrogen 3.8 billion years ago</image:caption>
-    </image:image>
-  <lastmod>2018-02-26T02:44:51+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://natashabatalha.github.io/whitepaper.html</loc>
   <lastmod>2018-02-26T02:44:51+00:00</lastmod>
   <priority>0.80</priority>
 </url>

@@ -39,6 +39,12 @@ img {
     width: 100%;
 }
 
+.vl-main-holder {
+    position: relative;
+    z-index: 2;
+    background-color: #fff;
+}
+
 .vl-main-padding {
     padding: 90px 0;
 }
@@ -4325,9 +4331,9 @@ a.vl-link.reverse:hover::after {
 /*  SHORTCODE HERO HEADER
 ----------------------------------------------------------*/
 .vl-hero-title-holder {
-    padding-top: 180px;
-    padding-bottom: 100px;
-    min-height: 80vh;
+    padding-top: 120px;
+    padding-bottom: 60px;
+    min-height: 50vh;
     background-color: #efefef;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -4353,7 +4359,7 @@ a.vl-link.reverse:hover::after {
 .vl-hero-title-inner .avatar {
     border-radius: 100%;
     display: inline-block;
-    margin: 0 0 2em 0;
+    margin: 0 0 1em 0;
     padding: 0.5em;
     border: solid 1px rgba(255, 255, 255, 0.25);
     background-color: rgba(255, 255, 255, 0.075);
@@ -4361,7 +4367,7 @@ a.vl-link.reverse:hover::after {
     .vl-hero-title-inner .avatar img {
         border-radius: 100%;
         display: block;
-        width: 10em;
+        width: 8em;
     }
 
 .vl-hero-title-inner .vl-hero-title {
